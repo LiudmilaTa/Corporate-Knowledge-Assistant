@@ -1,0 +1,35 @@
+[project]
+name = "corporate-knowledge-assistant"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "taganliu", email = "taganliu@cvut.cz" }
+]
+requires-python = ">=3.11"
+dependencies = [
+    "aiofiles>=24.1.0",
+    "alembic>=1.14.1",
+    "fastapi>=0.124.4",
+    "httpx>=0.28.1",
+    "langchain-text-splitters>=1.1.2",
+    "openai>=2.2.0",
+    "pgvector>=0.3.6",
+    "psycopg[binary]>=3.2.13",
+    "pydantic>=2.10.6",
+    "pypdf>=5.9.0",
+    "python-docx>=1.1.2",
+    "python-dotenv>=1.0.1",
+    "python-multipart>=0.0.20",
+    "sentence-transformers>=5.6.1",
+    "sqlalchemy>=2.0.51",
+    "tiktoken>=0.7.0",
+    "uvicorn>=0.33.0",
+]
+
+[project.scripts]
+corporate-knowledge-assistant = "corporate_knowledge_assistant:main"
+
+[build-system]
+requires = ["uv_build>=0.12.1,<0.13.0"]
+build-backend = "uv_build"
