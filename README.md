@@ -11,8 +11,35 @@ The application allows users to upload internal documents, index their content, 
 * Document chunking
 * Vector embeddings generation
 * Storage in PostgreSQL + pgvector
-* Semantic search
-* Local LLM-based answer generation
+* Semantic similarity search
+* Context retrieval
+* Local LLM answer generation
+* Source references in answers
+
+## Architecture
+
+User
+|
+v
+FastAPI Web Application
+|
+v
+Question Embedding
+|
+v
+Vector Search (pgvector)
+|
+v
+Relevant Document Chunks
+|
+v
+Prompt Construction
+|
+v
+Ollama + Mistral
+|
+v
+Answer + Sources
 
 ## Tech Stack
 
@@ -24,9 +51,10 @@ Backend:
 
 AI / ML:
 
-* Sentence Transformers embeddings
+* Sentence Transformers
 * RAG architecture
-* Ollama local LLM
+* Ollama
+* Mistral LLM
 
 Database:
 
@@ -210,3 +238,28 @@ Detailed architecture description:
 
 [Project Details](docs/PROJECT_DETAILS.md)
 
+## 7. Start Ollama
+
+Install Ollama:
+
+https://ollama.com
+
+
+Download model:
+
+```bash
+ollama pull mistral
+```
+
+Run model:
+
+```bash
+ollama run mistral
+```
+
+```markdown
+## Screenshots
+
+### Chat Interface
+
+![Application screenshot](docs/images/chat.jpg)

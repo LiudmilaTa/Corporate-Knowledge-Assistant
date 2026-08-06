@@ -1,17 +1,21 @@
-from fastapi import FastAPI
-from app.api.upload import router as upload_router
+from fastapi import FastAPI, Request
+from fastapi.templating import Jinja2Templates
+from fastapi.staticfiles import StaticFiles
 
+from app.api.routes import router
 
-app = FastAPI(
-    title="Corporate AI Search"
-)
+app = FastAPI(title="Corporate Knowledge Assistant")
 
-app.include_router(
-    upload_router
-)
+app.include_router(router)
+
+app.mount("/static", StaticFiles(directory="app/static"), name="static")
+
+templates = Jinja2Templates(directory="app/templates")
 
 @app.get("/")
-def home():
-    return {
-        "message": "RAG MVP is running"
-    }
+def home(request: Request):
+    return templates.TemplateResponse(
+        request=request,
+        name="index.html",
+        context={}
+    )
