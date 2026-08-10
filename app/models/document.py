@@ -10,25 +10,25 @@ class Document(Base):
 
     id: Mapped[int] = mapped_column(
         Integer,
-        primary_key=True
+        primary_key=True,
     )
 
     filename: Mapped[str | None] = mapped_column(
-        Text
+        Text,
     )
 
     page: Mapped[int | None] = mapped_column(
-        Integer
+        Integer,
     )
 
     chunk_id: Mapped[int | None] = mapped_column(
-        Integer
+        Integer,
     )
 
     content: Mapped[str | None] = mapped_column(
-        Text
+        Text,
     )
 
     embedding: Mapped[list[float] | None] = mapped_column(
-        Vector(384)
+        Vector(384),
     )
