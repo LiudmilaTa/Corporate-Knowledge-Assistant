@@ -20,24 +20,27 @@ UPLOAD_DIR.mkdir(exist_ok=True)
     response_model=QuestionResponse,
 )
 def ask(request: QuestionRequest):
-
-    result = ask_question(request.question)
-
-    return result
+     try:
+         return ask_question(request.question)
+     except UnboundLocalError:
+         return {
+             "answer": "No documents indexed yet. Upload a PDF first.",
+             "sources": [],
+         }
 
 @router.post("/upload")
 async def upload_document(
     file: UploadFile = File(...)
 ):
 
-    file_path = UPLOAD_DIR / file.filename
+     filename = Path(file.filename).name
+     file_path = UPLOAD_DIR / filename
 
     with open(file_path, "wb") as buffer:
-        buffer.write(await file.read())
+         while chunk := await file.read(1024 * 1024):
+             buffer.write(chunk)
 
-    count = ingest_document(
-        str(file_path)
-    )
+     count = ingest_document(str(file_path), filename)
 
     return {
         "filename": file.filename,

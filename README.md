@@ -257,7 +257,6 @@ Run model:
 ollama run mistral
 ```
 
-```markdown
 ## Screenshots
 
 ### Chat Interface
