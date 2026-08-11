@@ -52,34 +52,3 @@ form.addEventListener("submit", async function(e) {
 
 });
 
-/*
-const uploadForm = document.getElementById("upload-form");
-
-if (uploadForm) {
-    uploadForm.addEventListener("submit", async function(e) {
-        e.preventDefault();
-        const file = document.getElementById("file").files[0];
-        if (!file) { return; }
-
-        const formData = new FormData();
-        formData.append(
-            "file",
-            file
-        );
-
-        const response = await fetch(
-            "/upload",
-            {
-                method: "POST",
-                body: formData
-            }
-        );
-
-        const data = await response.json();
-
-        document.getElementById(
-            "upload-result"
-        ).innerText =
-            `Uploaded ${data.filename}. Chunks: ${data.chunks}`;
-    });
-}*/

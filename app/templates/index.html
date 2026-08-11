@@ -1,43 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <title>Corporate Knowledge Assistant</title>
-    <link rel="stylesheet" href="/static/style.css">
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Corporate Knowledge Assistant</title> 
+    <link rel="stylesheet" href="/static/style.css"> 
 </head>
 
 <body>
 
 <div class="container">
-
+<header class="header">
     <h1>Corporate Knowledge Assistant</h1>
-
     <p class="subtitle">
         AI-powered search across company documents
     </p>
+    <nav class="navigation">
+        <a href="/" class="active">Chat</a>
+        <a href="/documents-page">Documents</a>
+    </nav>
+</header>
 
-   <form id="ask-form">
-        <input
-            type="text"
-            name="question"
-            placeholder="Ask something about your documents..."
-            required
-        >
-        <button id="ask-button" type="submit">
-            Ask
-        </button>
-    </form>
+<main>
+    <section class="chat-section">
+        <form id="ask-form">
+            <input
+                type="text"
+                name="question"
+                placeholder="Ask something about your documents..."
+                autocomplete="off"
+                required
+            >
 
+            <button id="ask-button" type="submit">
+                Ask
+            </button>
+        </form>
 
-    <div id="loading" class="loading">
-        <div class="spinner"></div>
-        <span>
-            AI is analyzing documents...
-        </span>
-    </div>
+        <div id="loading" class="loading">
+            <div class="spinner"></div>
+            <span>
+                AI is analyzing documents...
+            </span>
+        </div>
+    </section>
 
-    <div class="result">
+    <section class="result">
         <h2>Answer</h2>
         <div id="answer" class="answer-box">
             <p class="empty">
@@ -48,32 +57,14 @@
         <h3>Sources</h3>
         <div id="sources" class="sources">
         </div>
-    </div>
+    </section>
+
+</main>
+
 </div>
 
 <script src="/static/script.js"></script>
 
-<!--
-<hr>
-
-<h2>Upload document</h2>
-
-<form id="upload-form">
-
-    <input 
-        type="file"
-        id="file"
-        accept=".pdf"
-    >
-
-    <button type="submit">
-        Upload
-    </button>
-
-</form>
-
-<div id="upload-result"></div>-->
-
-</body>
+</body> 
 
 </html>
