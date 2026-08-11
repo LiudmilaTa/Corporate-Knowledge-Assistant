@@ -30,19 +30,14 @@ form.addEventListener("submit", async function(e) {
 
         const data = await response.json();
 
-        answer.innerHTML = data.answer.replace(
-            /\n/g,
-            "<br>"
-        );
+        answer.textContent = data.answer ?? "";
 
         data.sources.forEach(source => {
             const card = document.createElement("div");
             card.className = "source-card";
-            card.innerHTML = `
-                📄 <b>${source.filename}</b>
-                <br>
-                Page: ${source.page}
-            `;
+            const title = document.createElement("strong");
+            title.textContent = source.filename;
+            card.append(title, document.createElement("br"), `Page: ${source.page}`);
             sources.appendChild(card);
         });
 
