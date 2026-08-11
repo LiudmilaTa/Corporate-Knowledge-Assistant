@@ -1,4 +1,18 @@
 from app.models.document import Document
 
-print(Document.__tablename__)
-print(Document.__table__.columns.keys())
+
+def test_document_table_name():
+    assert Document.__tablename__ == "documents"
+
+
+def test_document_columns():
+    columns = set(Document.__table__.columns.keys())
+
+    assert columns == {
+        "id",
+        "filename",
+        "page",
+        "chunk_id",
+        "content",
+        "embedding",
+    }
