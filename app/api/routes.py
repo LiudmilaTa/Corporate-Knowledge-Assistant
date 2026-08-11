@@ -39,6 +39,7 @@ def ask(request: QuestionRequest):
             chat_message = ChatMessage(
                 question=request.question,
                 answer=result["answer"],
+                sources=result.get("sources", []),
             )
 
             session.add(chat_message)
@@ -145,6 +146,7 @@ def get_chat_history():
                 "id": message.id,
                 "question": message.question,
                 "answer": message.answer,
+                "sources": message.sources,
                 "created_at": message.created_at,
             }
             for message in messages
