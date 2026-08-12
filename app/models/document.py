@@ -1,6 +1,6 @@
+from pgvector.sqlalchemy import Vector
 from sqlalchemy import Integer, Text
 from sqlalchemy.orm import Mapped, mapped_column
-from pgvector.sqlalchemy import Vector
 
 from app.db.base import Base
 

@@ -1,8 +1,8 @@
-from app.database import get_connection
 from pgvector import Vector
 
-def search_documents(query_embedding, limit=5):
+from app.database import get_connection
 
+def search_documents(query_embedding, limit=5):
     conn = get_connection()
     cur = conn.cursor()
     query_embedding = Vector(query_embedding)
@@ -19,11 +19,7 @@ def search_documents(query_embedding, limit=5):
         ORDER BY embedding <=> %s
         LIMIT %s
         """,
-        (
-            query_embedding,
-            query_embedding,
-            limit
-        )
+        (query_embedding, query_embedding, limit),
     )
 
     results = cur.fetchall()
