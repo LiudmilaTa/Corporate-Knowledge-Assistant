@@ -1,87 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head> 
-    <meta charset="UTF-8"> 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <title>Corporate Knowledge Assistant</title> 
-    <link rel="stylesheet" href="/static/style.css"> 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corporate Knowledge Assistant</title>
+    <link rel="stylesheet" href="/static/css/base.css">
+    <link rel="stylesheet" href="/static/css/chat.css">
 </head>
-
 <body>
+    <div class="container">
+        <header class="header">
+            <h1>Knowledge Workspace</h1>
+            <p class="subtitle">AI-powered search across company documents</p>
+            <nav class="navigation">
+                <a href="/" class="active">Chat</a>
+                <a href="/documents-page">Documents</a>
+            </nav>
+        </header>
 
-<div class="container">
-<header class="header">
-    <h1>Corporate Knowledge Assistant</h1>
-    <p class="subtitle">
-        AI-powered search across company documents
-    </p>
-    <nav class="navigation">
-        <a href="/" class="active">Chat</a>
-        <a href="/documents-page">Documents</a>
-    </nav>
-</header>
+        <main>
+            <section class="chat-section">
+                <div class="action-intro">
+                    <h2>Ask documents</h2>
+                    <p>Search across uploaded files with a natural language question.</p>
+                </div>
+                <form id="ask-form">
+                    <input
+                        type="text"
+                        name="question"
+                        placeholder="Ask something about your documents..."
+                        autocomplete="off"
+                        required
+                    >
+                    <button id="ask-button" class="primary-action" type="submit">Ask</button>
+                </form>
 
-<main>
-    <section class="chat-section">
-        <form id="ask-form">
-            <input
-                type="text"
-                name="question"
-                placeholder="Ask something about your documents..."
-                autocomplete="off"
-                required
-            >
+                <div id="loading" class="loading">
+                    <div class="spinner"></div>
+                    <span>AI is analyzing documents...</span>
+                </div>
+            </section>
 
-            <button id="ask-button" type="submit">
-                Ask
-            </button>
-        </form>
+            <section class="result">
+                <h2>Answer</h2>
+                <div id="answer" class="answer-box">
+                    <p class="empty">Ask a question about your documents</p>
+                </div>
 
-        <div id="loading" class="loading">
-            <div class="spinner"></div>
-            <span>
-                AI is analyzing documents...
-            </span>
-        </div>
-    </section>
+                <h3>Sources</h3>
+                <div id="sources" class="sources"></div>
+            </section>
 
-    <section class="result">
-        <h2>Answer</h2>
-        <div id="answer" class="answer-box">
-            <p class="empty">
-                Ask a question about your documents
-            </p>
-        </div>
-
-        <h3>Sources</h3>
-        <div id="sources" class="sources">
-        </div>
-    </section>
-    
-    <section class="history-section"> <div class="history-header"> <h2>Chat History</h2>
-
-        <button
-            id="refresh-history"
-            type="button"
-            class="secondary-button"
-        >
-            Refresh
-        </button>
+            <section class="history-section">
+                <div class="section-header">
+                    <h2>Chat History</h2>
+                    <button id="refresh-history" type="button" class="secondary-action">Refresh</button>
+                </div>
+                <div id="chat-history">Loading chat history...</div>
+            </section>
+        </main>
     </div>
 
-    <div id="chat-history">
-        Loading chat history...
-    </div>
-
-    </section>
-
-</main>
-
-</div>
-
-<script src="/static/script.js"></script>
-
-</body> 
-
+    <script src="/static/js/chat.js"></script>
+</body>
 </html>

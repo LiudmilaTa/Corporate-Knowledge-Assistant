@@ -1,0 +1,115 @@
+#answer {
+    margin-top: 20px;
+    white-space: pre-wrap;
+}
+
+#loading {
+    display: none;
+    margin-top: 25px;
+    align-items: center;
+    gap: 15px;
+    color: #555;
+}
+
+.spinner {
+    width: 20px;
+    height: 20px;
+    border: 3px solid #ddd;
+    border-top: 3px solid #2563eb;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.answer-box {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    min-height: 50px;
+}
+
+.sources {
+    padding: 0;
+}
+
+.sources .source-card {
+    background: white;
+    margin-top: 10px;
+    padding: 15px;
+    border-radius: 10px;
+    border-left: 5px solid #2563eb;
+}
+
+.secondary-button {
+    background: #6b7280;
+    padding: 8px 16px;
+    font-size: 14px;
+    border-radius: 999px;
+}
+
+.history-card {
+    background: white;
+    margin-top: 15px;
+    padding: 20px;
+    border-radius: 12px;
+    border-left: 5px solid #2563eb;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+    animation: cardAppear 0.25s ease both;
+}
+
+.history-question strong {
+    color: #1f2937;
+}
+
+.history-answer {
+    margin-top: 15px;
+}
+
+.history-answer strong {
+    color: #2563eb;
+}
+
+.history-card p {
+    margin: 8px 0 0;
+    white-space: pre-wrap;
+    line-height: 1.6;
+}
+
+.history-date {
+    margin-top: 15px;
+    color: #9ca3af;
+    font-size: 13px;
+}
+
+.history-sources {
+    margin-top: 15px;
+}
+
+.history-sources strong {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.history-source-card {
+    background: #f8fafc;
+    border-left: 4px solid #2563eb;
+    padding: 10px 12px;
+    margin-top: 6px;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.history-source-card div {
+    font-weight: 600;
+    color: #6b7280;
+    margin-top: 3px;
+}
