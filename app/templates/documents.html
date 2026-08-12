@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documents - Corporate Knowledge Assistant</title>
+    <link rel="stylesheet" href="/static/css/base.css">
+    <link rel="stylesheet" href="/static/css/documents.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Knowledge Workspace</h1>
+            <p class="subtitle">Manage your corporate documents</p>
+            <nav class="navigation">
+                <a href="/">Chat</a>
+                <a href="/documents-page" class="active">Documents</a>
+            </nav>
+        </header>
+
+        <main>
+            <section class="upload-section">
+                <div class="action-intro">
+                    <h2>Upload document</h2>
+                    <p>Add a PDF to make it available for search in the workspace.</p>
+                </div>
+                <form id="upload-form">
+                    <label class="file-input-shell" for="file">
+                        <span class="file-input-button">Choose file</span>
+                        <span id="file-name" class="file-input-name">No file selected</span>
+                    </label>
+                    <input type="file" id="file" accept=".pdf" required>
+                    <button id="upload-button" class="primary-action" type="submit">Upload</button>
+                </form>
+                <div id="upload-result"></div>
+            </section>
+
+            <section class="documents-section">
+                <div class="section-header">
+                    <h2>Uploaded documents</h2>
+                    <button id="refresh-documents" type="button" class="secondary-action">Refresh</button>
+                </div>
+                <div id="documents-list">Loading documents...</div>
+            </section>
+        </main>
+    </div>
+
+    <script src="/static/js/documents.js"></script>
+</body>
+</html>

@@ -22,3 +22,11 @@ def home(request: Request):
         name="index.html",
         context={}
     )
+
+@app.get("/documents-page")
+def documents_page(request: Request):
+    return templates.TemplateResponse(
+    request=request,
+    name="documents.html",
+    context={},
+)

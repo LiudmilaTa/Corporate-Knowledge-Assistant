@@ -1,10 +1,14 @@
-from sqlalchemy import text
+from sqlalchemy import inspect
 
 from app.db.session import engine
 
 
-with engine.connect() as connection:
-    result = connection.execute(text("SELECT 1"))
-    print(result.scalar())
+def test_database_connection():
+    with engine.connect() as connection:
+        assert connection.closed is False
 
-print("SQLAlchemy connection successful")
+
+def test_documents_table_exists():
+    inspector = inspect(engine)
+
+    assert inspector.has_table("documents")
