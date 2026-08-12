@@ -1,92 +1,32 @@
 # Corporate Knowledge Assistant
 
-AI-powered corporate document search system based on RAG architecture.
+A small RAG-based assistant for searching and questioning company documents.
 
-The application allows users to upload internal documents, index their content, and search information using semantic similarity.
+## What it does
 
-## Features (MVP)
+- Uploads PDF documents
+- Extracts text and splits it into chunks
+- Creates embeddings and stores them in PostgreSQL + pgvector
+- Answers questions using retrieved context and an LLM
 
-* PDF document processing
-* Text extraction
-* Document chunking
-* Vector embeddings generation
-* Storage in PostgreSQL + pgvector
-* Semantic similarity search
-* Context retrieval
-* Local LLM answer generation
-* Source references in answers
+## Tech stack
 
-## Architecture
+- Python 3.11
+- FastAPI
+- SQLAlchemy + PostgreSQL + pgvector
+- Sentence Transformers
+- pypdf + langchain text splitters
+- uv
 
-User
-|
-v
-FastAPI Web Application
-|
-v
-Question Embedding
-|
-v
-Vector Search (pgvector)
-|
-v
-Relevant Document Chunks
-|
-v
-Prompt Construction
-|
-v
-Ollama + Mistral
-|
-v
-Answer + Sources
+## Quick start
 
-## Tech Stack
-
-Backend:
-
-* Python 3.11
-* FastAPI
-* uv package manager
-
-AI / ML:
-
-* Sentence Transformers
-* RAG architecture
-* Ollama
-* Mistral LLM
-
-Database:
-
-* PostgreSQL 16
-* pgvector extension
-
-Infrastructure:
-
-* Docker
-* Docker Compose
-
-# Installation
-
-## 1. Clone repository
-
-```bash
-git clone <repository-url>
-
-cd Corporate-Knowledge-Assistant
-```
-
-## 2. Create environment
-
-Install dependencies:
+1. Install dependencies:
 
 ```bash
 uv sync
 ```
 
-## 3. Configure environment variables
-
-Create `.env` file:
+2. Create a `.env` file with your database settings:
 
 ```env
 POSTGRES_HOST=localhost
@@ -94,170 +34,33 @@ POSTGRES_PORT=5432
 POSTGRES_DB=rag_db
 POSTGRES_USER=rag_user
 POSTGRES_PASSWORD=rag_password
-
-HF_HUB_DISABLE_TELEMETRY=1
 ```
 
-## 4. Start PostgreSQL + pgvector with Docker
-
-The project uses PostgreSQL with the pgvector extension for storing and searching document embeddings.
-
-Make sure Docker Desktop is running.
-
-Check Docker installation:
-
-```bash
-docker --version
-```
-
-Start database container:
+3. Start PostgreSQL and the app:
 
 ```bash
 docker compose up -d
-```
-
-Check running containers:
-
-```bash
-docker ps
-```
-
-Expected output:
-
-```
-CONTAINER ID   IMAGE                    STATUS
-xxxxx          pgvector/pgvector:pg16   Up
-```
-The database will be available at:
-
-Host: localhost
-Port: 5432
-Database: rag_db
-User: rag_user
-
-#### Stop database
-
-To stop containers:
-
-```bash
-docker compose down
-```
-
-#### Restart database
-
-After restarting your computer:
-
-```bash
-docker compose up -d
-```
-
-#### View database logs
-
-If there are connection problems:
-
-```bash
-docker compose logs postgres
-```
-
-## 5. Initialize pgvector database (first run only)
-
-Connect to PostgreSQL container:
-
-```bash
-docker exec -it rag_postgres psql -U rag_user -d rag_db
-```
-
-Enable vector extension:
-
-```sql
-CREATE EXTENSION vector;
-```
-
-Create documents table:
-
-```sql
-CREATE TABLE documents (
-    id SERIAL PRIMARY KEY,
-    filename TEXT,
-    page INTEGER,
-    chunk_id INTEGER,
-    content TEXT,
-    embedding vector(384)
-);
-```
-
-Check table:
-
-```sql
-\dt
-```
-
-Exit:
-
-```sql
-\q
-```
-
-## 6. Run application
-
-Start backend:
-
-```bash
 uv run uvicorn app.main:app --reload
 ```
 
-Application:
+4. Open the app at:
 
-```
+```text
 http://localhost:8000
 ```
 
-# Testing
+## Testing
 
-Run PDF processing:
-
-```bash
-uv run python -m tests.test_ingestion
-```
-
-Test database connection:
+Run the main regression suite:
 
 ```bash
-uv run python -m tests.test_connection
+uv run pytest -q tests/test_rag.py tests/test_api.py tests/test_splitter.py tests/test_processor.py tests/test_ingestion.py tests/test_pdf.py tests/test_search.py tests/test_connection.py tests/test_db.py tests/test_llm.py tests/test_model.py
 ```
 
-Test vector search:
+## Notes
 
-```bash
-uv run python -m tests.test_search
-```
-
-# Project Documentation
-
-Detailed architecture description:
-
-[Project Details](docs/PROJECT_DETAILS.md)
-
-## 7. Start Ollama
-
-Install Ollama:
-
-https://ollama.com
-
-
-Download model:
-
-```bash
-ollama pull mistral
-```
-
-Run model:
-
-```bash
-ollama run mistral
-```
-
-## Screenshots
+- The app expects an LLM endpoint at `http://localhost:11434/api/generate` for answer generation.
+- More detailed project context is available in [docs/PROJECT_DETAILS.md](docs/PROJECT_DETAILS.md).
 
 ### Chat Interface
 

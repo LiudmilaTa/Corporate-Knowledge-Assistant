@@ -1,35 +1,10 @@
-from app.services.pdf_loader import load_pdf
-from app.services.document_processor import create_chunks
+from app.services.splitter import split_text
 
 
-filename = "CV_Liudmila Taganashkina.pdf"
+def test_splitter_returns_multiple_chunks_for_long_text():
+    text = "word " * 3000
 
+    chunks = split_text(text)
 
-pages = load_pdf(
-    f"uploads/{filename}"
-)
-
-
-chunks = create_chunks(
-    pages,
-    filename
-)
-
-
-print(
-    "Total chunks:",
-    len(chunks)
-)
-
-
-for chunk in chunks[:3]:
-
-    print("\nTEXT:")
-    print(
-        chunk["text"][:300]
-    )
-
-    print("\nMETADATA:")
-    print(
-        chunk["metadata"]
-    )
+    assert len(chunks) >= 2
+    assert all(isinstance(chunk, str) and chunk for chunk in chunks)
