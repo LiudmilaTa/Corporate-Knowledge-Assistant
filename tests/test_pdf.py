@@ -2,7 +2,7 @@ from app.services.pdf_loader import load_pdf
 
 
 def test_load_pdf_returns_pages_with_text():
-    pages = load_pdf("uploads/CV_Liudmila Taganashkina.pdf")
+    pages = load_pdf("tests/fixtures/test.pdf")
 
     assert isinstance(pages, list)
     assert pages

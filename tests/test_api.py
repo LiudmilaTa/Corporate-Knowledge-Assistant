@@ -37,6 +37,7 @@ def test_ask_saves_chat_message(monkeypatch):
                 {
                     "filename": "test.pdf",
                     "page": 1,
+                    "excerpt": "Test excerpt",
                 }
             ],
         }
@@ -150,3 +151,7 @@ def test_delete_document_by_filename_removes_all_chunks():
 
     assert deleted_rows == []
     assert any(row.filename == "keep-me.pdf" for row in remaining_rows)
+
+    with SessionLocal() as session:
+        session.query(Document).filter(Document.filename == "keep-me.pdf").delete()
+        session.commit()

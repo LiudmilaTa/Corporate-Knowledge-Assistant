@@ -3,7 +3,7 @@ from app.services.splitter import split_text
 
 
 pages = load_pdf(
-    "uploads/CV_Liudmila Taganashkina.pdf"
+    "tests/fixtures/test.pdf"
 )
 
 
