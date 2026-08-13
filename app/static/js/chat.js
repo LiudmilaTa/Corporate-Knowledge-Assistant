@@ -35,6 +35,14 @@ function renderSources(sourceList) {
         page.textContent = `Page: ${source.page}`;
 
         sourceCard.append(filename, page);
+
+        if (source.excerpt) {
+            const excerpt = document.createElement("p");
+            excerpt.className = "source-excerpt";
+            excerpt.textContent = `"${source.excerpt}"`;
+            sourceCard.appendChild(excerpt);
+        }
+
         container.appendChild(sourceCard);
     });
 
@@ -60,11 +68,40 @@ function renderHistoryCard(message) {
     date.className = "history-date";
     date.textContent = new Date(message.created_at).toLocaleString();
 
+    const deleteButton = document.createElement("button");
+    deleteButton.type = "button";
+    deleteButton.textContent = "🗑";
+    deleteButton.setAttribute("aria-label", "Delete message");
+    deleteButton.title = "Delete message";
+    deleteButton.className = "history-delete";
+
+    const deleteMessage = async () => {
+        deleteButton.disabled = true;
+        try {
+            const response = await fetch(`/chats/${message.id}`, {method: "DELETE"});
+            if (!response.ok) {
+                throw new Error(`Failed to delete chat message ${message.id}`);
+            }
+            card.remove();
+        } catch (error) {
+            console.error(error);
+            deleteButton.disabled = false;
+        }
+    };
+
+    deleteButton.addEventListener("click", () => {
+        showDeleteConfirmModal({
+            title: "Delete message",
+            message: "This message will be permanently deleted. This action cannot be undone.",
+            onConfirm: deleteMessage,
+        });
+    });
+
     card.append(question, answerBlock);
     if (sourcesBlock) {
         card.appendChild(sourcesBlock);
     }
-    card.appendChild(date);
+    card.append(date, deleteButton);
 
     return card;
 }
@@ -92,6 +129,14 @@ form.addEventListener("submit", async (event) => {
             const title = document.createElement("strong");
             title.textContent = source.filename;
             card.append(title, document.createElement("br"), `Page: ${source.page}`);
+                        
+            if (source.excerpt) {
+                const excerpt = document.createElement("p");
+                excerpt.className = "source-excerpt";
+                excerpt.textContent = `"${source.excerpt}"`;
+                card.appendChild(excerpt);
+            }
+            
             sources.appendChild(card);
         });
     } catch (error) {

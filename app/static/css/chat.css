@@ -57,6 +57,7 @@
 }
 
 .history-card {
+    position: relative;
     background: white;
     margin-top: 15px;
     padding: 20px;
@@ -64,6 +65,28 @@
     border-left: 5px solid #2563eb;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
     animation: cardAppear 0.25s ease both;
+}
+
+button.history-delete {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 20px;
+    line-height: 1;
+    background: #f3f4f6;
+    color: #374151;
+    box-shadow: none;
+}
+
+button.history-delete:hover {
+    background: #e5e7eb;
 }
 
 .history-question strong {
@@ -112,4 +135,12 @@
     font-weight: 600;
     color: #6b7280;
     margin-top: 3px;
+}
+
+.source-excerpt {
+    margin: 8px 0 0;
+    color: #374151;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 1.5;
 }
