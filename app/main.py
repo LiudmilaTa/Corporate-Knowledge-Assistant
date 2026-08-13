@@ -12,10 +12,10 @@ app.mount("/static", StaticFiles(directory="app/static"), name="static")
 templates = Jinja2Templates(directory="app/templates")
 setup_logging()
 
-@app.get("/")
+@app.get("/", include_in_schema=False)
 def home(request: Request):
     return templates.TemplateResponse(request=request, name="index.html", context={})
 
-@app.get("/documents-page")
+@app.get("/documents-page", include_in_schema=False)
 def documents_page(request: Request):
     return templates.TemplateResponse(request=request, name="documents.html", context={})

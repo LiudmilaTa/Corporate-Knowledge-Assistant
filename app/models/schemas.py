@@ -3,16 +3,14 @@ from pydantic import BaseModel
 class QuestionRequest(BaseModel):
     question: str
 
-
 class Source(BaseModel):
     filename: str
     page: int
-
+    excerpt: str
 
 class QuestionResponse(BaseModel):
     answer: str
     sources: list[Source]
-
 
 class DocumentResponse(BaseModel):
     id: int

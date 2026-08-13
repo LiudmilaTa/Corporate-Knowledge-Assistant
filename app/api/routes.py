@@ -9,14 +9,13 @@ from app.models.chat_message import ChatMessage
 from app.models.document import Document
 from app.models.schemas import DocumentResponse, QuestionRequest, QuestionResponse
 from app.services.ingestion import ingest_document
-from app.services.rag import ask_question
+from app.services.rag import NoDocumentsIndexedError, NoRelevantResultsError, ask_question
 
 router = APIRouter()
 logger = logging.getLogger(__name__)
 
 UPLOAD_DIR = Path("uploads")
 UPLOAD_DIR.mkdir(exist_ok=True)
-
 
 @router.post("/ask", response_model=QuestionResponse)
 def ask(request: QuestionRequest):
@@ -38,13 +37,19 @@ def ask(request: QuestionRequest):
 
         logger.info("Chat message saved")
         return result
-    except UnboundLocalError:
+    except NoDocumentsIndexedError:
         logger.warning("No documents indexed")
         return {
             "answer": "No documents indexed yet. Upload a PDF first.",
             "sources": [],
         }
 
+    except NoRelevantResultsError:
+        logger.warning("No relevant documents found for question")
+        return {
+            "answer": "No relevant information found in the indexed documents.",
+            "sources": [],
+        }
 
 @router.post("/upload")
 async def upload_document(file: UploadFile = File(...)):
@@ -78,36 +83,29 @@ def get_document(document_id: int):
         return document
 
 
-@router.delete("/documents/{document_identifier}")
-def delete_document(document_identifier: str):
+@router.delete("/documents/{filename:path}")
+def delete_document(filename: str):
+    logger.info("Delete requested for document: %r", filename)
+
     with SessionLocal() as session:
-        if document_identifier.isdigit():
-            document = session.get(Document, int(document_identifier))
-            if document is None:
-                raise HTTPException(status_code=404, detail="Document not found")
-
-            session.delete(document)
-            session.commit()
-            return {"message": "Document deleted", "id": int(document_identifier)}
-
         documents_to_delete = (
-            session.execute(
-                select(Document).where(Document.filename == document_identifier)
-            )
+            session.execute(select(Document).where(Document.filename == filename))
             .scalars()
             .all()
         )
 
         if not documents_to_delete:
+            logger.warning("Delete failed, no matching document: %r", filename)
             raise HTTPException(status_code=404, detail="Document not found")
 
         for document in documents_to_delete:
             session.delete(document)
 
         session.commit()
+        logger.info("Deleted %s chunk(s) for document: %r", len(documents_to_delete), filename)
         return {
             "message": "Document deleted",
-            "filename": document_identifier,
+            "filename": filename,
             "deleted_count": len(documents_to_delete),
         }
 
@@ -125,3 +123,15 @@ def get_chat_history():
             }
             for message in messages
         ]
+
+
+@router.delete("/chats/{message_id}")
+def delete_chat_message(message_id: int):
+    with SessionLocal() as session:
+        message = session.get(ChatMessage, message_id)
+        if message is None:
+            raise HTTPException(status_code=404, detail="Chat message not found")
+
+        session.delete(message)
+        session.commit()
+        return {"message": "Chat message deleted", "id": message_id}
