@@ -62,12 +62,48 @@
 }
 
 .document-card {
+    position: relative;
     background: white;
     margin-top: 15px;
     padding: 20px;
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
     animation: cardAppear 0.25s ease both;
+}
+
+button.document-delete {
+    color: #b91c1c;
+}
+
+button.document-delete:hover {
+    background: #fee2e2;
+}
+
+.card-actions {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    display: flex;
+    gap: 8px;
+}
+
+button.card-icon-action {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 20px;
+    line-height: 1;
+    background: #f3f4f6;
+    color: #374151;
+    box-shadow: none;
+}
+
+button.card-icon-action:hover {
+    background: #e5e7eb;
 }
 
 @keyframes cardAppear {
@@ -83,9 +119,9 @@
 
 .document-header {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
+    flex-direction: column;
+    gap: 4px;
+    padding-right: 96px;
 }
 
 .document-header h3 {
@@ -95,57 +131,8 @@
 }
 
 .document-meta {
-    margin: 5px 0 0;
+    margin: 0;
     color: #6b7280;
-    font-size: 14px;
-}
-
-.document-actions {
-    display: flex;
-    gap: 10px;
-    margin-top: 15px;
-}
-
-.document-actions .secondary-action,
-.document-actions .danger-action,
-.delete-confirmation-buttons .secondary-action,
-.delete-confirmation-buttons .danger-action {
-    padding: 8px 14px;
-    font-size: 13px;
-    border-radius: 10px;
-}
-
-.document-actions .secondary-action,
-.delete-confirmation-buttons .secondary-action {
-    background: #64748b;
-}
-
-.document-actions .danger-action,
-.delete-confirmation-buttons .danger-action {
-    background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%);
-}
-
-.delete-confirmation {
-    margin-top: 15px;
-    padding: 14px 16px;
-    border: 1px solid #fecaca;
-    border-radius: 10px;
-    background: #fef2f2;
-    color: #991b1b;
-}
-
-.delete-confirmation p {
-    margin: 0 0 10px;
-    font-weight: 600;
-}
-
-.delete-confirmation-buttons {
-    display: flex;
-    gap: 10px;
-}
-
-.delete-confirmation-buttons button {
-    padding: 8px 14px;
     font-size: 14px;
 }
 
@@ -157,6 +144,12 @@
     color: #166534;
     border: 1px solid #86efac;
     animation: fadeInOut 2.6s ease forwards;
+}
+
+.delete-toast.error {
+    background: #fee2e2;
+    color: #991b1b;
+    border-color: #fca5a5;
 }
 
 @keyframes fadeInOut {
