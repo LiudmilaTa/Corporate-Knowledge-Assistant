@@ -1,15 +1,8 @@
 from sentence_transformers import SentenceTransformer
 
-
-model = SentenceTransformer(
-    "all-MiniLM-L6-v2"
-)
-
+# multilingual model (also 384-dim) so cross-language questions (e.g. Russian question
+# about a Czech document) still match relevant chunks by meaning, not just language
+model = SentenceTransformer("paraphrase-multilingual-MiniLM-L12-v2")
 
 def create_embedding(text: str):
-
-    vector = model.encode(
-        text
-    )
-
-    return vector.tolist()
+    return model.encode(text).tolist()

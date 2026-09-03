@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Corporate Knowledge Assistant</title>
-    <link rel="stylesheet" href="/static/css/base.css">
-    <link rel="stylesheet" href="/static/css/chat.css">
+    <link rel="stylesheet" href="/static/css/base.css?v=8">
+    <link rel="stylesheet" href="/static/css/chat.css?v=8">
 </head>
 <body>
     <div class="container">
@@ -25,6 +25,9 @@
                     <p>Search across uploaded files with a natural language question.</p>
                 </div>
                 <form id="ask-form">
+                    <select id="document-filter" name="filename" aria-label="Document">
+                        <option value="">All documents</option>
+                    </select>
                     <input
                         type="text"
                         name="question"
@@ -61,6 +64,7 @@
         </main>
     </div>
 
-    <script src="/static/js/chat.js"></script>
+    <script src="/static/js/modal.js?v=8"></script>
+    <script src="/static/js/chat.js?v=8"></script>
 </body>
 </html>

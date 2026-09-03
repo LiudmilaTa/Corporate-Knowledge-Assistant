@@ -5,6 +5,27 @@ const answer = document.getElementById("answer");
 const sources = document.getElementById("sources");
 const historyContainer = document.getElementById("chat-history");
 const refreshHistoryButton = document.getElementById("refresh-history");
+const documentFilter = document.getElementById("document-filter");
+
+async function loadDocumentFilter() {
+    try {
+        const response = await fetch("/documents");
+        if (!response.ok) {
+            throw new Error(`HTTP error: ${response.status}`);
+        }
+
+        const documents = await response.json();
+        const filenames = [...new Set(documents.map((document) => document.filename).filter(Boolean))];
+        filenames.forEach((filename) => {
+            const option = document.createElement("option");
+            option.value = filename;
+            option.textContent = filename;
+            documentFilter.appendChild(option);
+        });
+    } catch (error) {
+        console.error("Failed to load document list", error);
+    }
+}
 
 function setLoadingState(isLoading) {
     loading.style.display = isLoading ? "flex" : "none";
@@ -35,6 +56,14 @@ function renderSources(sourceList) {
         page.textContent = `Page: ${source.page}`;
 
         sourceCard.append(filename, page);
+
+        if (source.excerpt) {
+            const excerpt = document.createElement("p");
+            excerpt.className = "source-excerpt";
+            excerpt.textContent = `"${source.excerpt}"`;
+            sourceCard.appendChild(excerpt);
+        }
+
         container.appendChild(sourceCard);
     });
 
@@ -60,11 +89,40 @@ function renderHistoryCard(message) {
     date.className = "history-date";
     date.textContent = new Date(message.created_at).toLocaleString();
 
+    const deleteButton = document.createElement("button");
+    deleteButton.type = "button";
+    deleteButton.textContent = "🗑";
+    deleteButton.setAttribute("aria-label", "Delete message");
+    deleteButton.title = "Delete message";
+    deleteButton.className = "history-delete";
+
+    const deleteMessage = async () => {
+        deleteButton.disabled = true;
+        try {
+            const response = await fetch(`/chats/${message.id}`, {method: "DELETE"});
+            if (!response.ok) {
+                throw new Error(`Failed to delete chat message ${message.id}`);
+            }
+            card.remove();
+        } catch (error) {
+            console.error(error);
+            deleteButton.disabled = false;
+        }
+    };
+
+    deleteButton.addEventListener("click", () => {
+        showDeleteConfirmModal({
+            title: "Delete message",
+            message: "This message will be permanently deleted. This action cannot be undone.",
+            onConfirm: deleteMessage,
+        });
+    });
+
     card.append(question, answerBlock);
     if (sourcesBlock) {
         card.appendChild(sourcesBlock);
     }
-    card.appendChild(date);
+    card.append(date, deleteButton);
 
     return card;
 }
@@ -81,7 +139,7 @@ form.addEventListener("submit", async (event) => {
         const response = await fetch("/ask", {
             method: "POST",
             headers: {"Content-Type": "application/json"},
-            body: JSON.stringify({question: input.value}),
+            body: JSON.stringify({question: input.value, filename: documentFilter.value || null}),
         });
         const data = await response.json();
 
@@ -92,10 +150,18 @@ form.addEventListener("submit", async (event) => {
             const title = document.createElement("strong");
             title.textContent = source.filename;
             card.append(title, document.createElement("br"), `Page: ${source.page}`);
+                        
+            if (source.excerpt) {
+                const excerpt = document.createElement("p");
+                excerpt.className = "source-excerpt";
+                excerpt.textContent = `"${source.excerpt}"`;
+                card.appendChild(excerpt);
+            }
+            
             sources.appendChild(card);
         });
     } catch (error) {
-        answer.textContent = "Error while processing request";
+        answer.textContent = "Database is not available. Start PostgreSQL and try again.";
         console.error(error);
     } finally {
         setLoadingState(false);
@@ -129,4 +195,5 @@ async function loadChatHistory() {
 }
 
 refreshHistoryButton.addEventListener("click", loadChatHistory);
+loadDocumentFilter();
 loadChatHistory();

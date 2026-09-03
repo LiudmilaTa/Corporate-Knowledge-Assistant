@@ -3,6 +3,7 @@ const uploadForm = document.getElementById("upload-form");
 const fileInput = document.getElementById("file");
 const fileName = document.getElementById("file-name");
 const uploadResult = document.getElementById("upload-result");
+const refreshDocumentsButton = document.getElementById("refresh-documents");
 
 function createChunkCard(chunk) {
     const card = document.createElement("div");
@@ -25,6 +26,25 @@ function createDocumentCard(filename, chunks) {
     const card = document.createElement("div");
     card.className = "document-card";
 
+    const cardActions = document.createElement("div");
+    cardActions.className = "card-actions";
+
+    const viewButton = document.createElement("button");
+    viewButton.type = "button";
+    viewButton.textContent = "👁";
+    viewButton.setAttribute("aria-label", "View chunks");
+    viewButton.title = "View chunks";
+    viewButton.className = "card-icon-action";
+
+    const deleteButton = document.createElement("button");
+    deleteButton.type = "button";
+    deleteButton.textContent = "🗑";
+    deleteButton.setAttribute("aria-label", "Delete document");
+    deleteButton.title = "Delete document";
+    deleteButton.className = "card-icon-action document-delete";
+
+    cardActions.append(viewButton, deleteButton);
+
     const header = document.createElement("div");
     header.className = "document-header";
 
@@ -37,19 +57,6 @@ function createDocumentCard(filename, chunks) {
 
     header.append(title, meta);
 
-    const actions = document.createElement("div");
-    actions.className = "document-actions";
-
-    const viewButton = document.createElement("button");
-    viewButton.type = "button";
-    viewButton.textContent = "View";
-    viewButton.className = "secondary-action";
-
-    const deleteButton = document.createElement("button");
-    deleteButton.type = "button";
-    deleteButton.textContent = "Delete";
-    deleteButton.className = "danger-action";
-
     const chunksContainer = document.createElement("div");
     chunksContainer.className = "chunks-container";
     chunksContainer.style.display = "none";
@@ -61,66 +68,49 @@ function createDocumentCard(filename, chunks) {
     viewButton.addEventListener("click", () => {
         const isHidden = chunksContainer.style.display === "none";
         chunksContainer.style.display = isHidden ? "block" : "none";
-        viewButton.textContent = isHidden ? "Hide" : "View";
+        viewButton.textContent = isHidden ? "🙈" : "👁";
+        viewButton.title = isHidden ? "Hide chunks" : "View chunks";
     });
 
     deleteButton.addEventListener("click", () => {
-        const confirmation = document.createElement("div");
-        confirmation.className = "delete-confirmation";
-
-        const message = document.createElement("p");
-        message.textContent = `Delete "${filename}"?`;
-
-        const buttons = document.createElement("div");
-        buttons.className = "delete-confirmation-buttons";
-
-        const confirmButton = document.createElement("button");
-        confirmButton.type = "button";
-        confirmButton.textContent = "Yes";
-        confirmButton.className = "danger-action confirm-delete";
-
-        const cancelButton = document.createElement("button");
-        cancelButton.type = "button";
-        cancelButton.textContent = "Cancel";
-        cancelButton.className = "secondary-action cancel-delete";
-
-        confirmButton.addEventListener("click", async () => {
-            try {
-                const response = await fetch(`/documents/${encodeURIComponent(filename)}`, {method: "DELETE"});
-                if (!response.ok) {
-                    throw new Error(`Failed to delete document ${filename}`);
-                }
-
-                card.classList.add("removing");
-                setTimeout(() => {
-                    card.remove();
-                    if (documentsList.children.length === 0) {
-                        documentsList.innerHTML = '<p class="empty">No documents uploaded yet.</p>';
+        showDeleteConfirmModal({
+            title: "Delete document",
+            message: `"${filename}" and all its chunks will be permanently deleted. This action cannot be undone.`,
+            onConfirm: async () => {
+                try {
+                    const response = await fetch(`/documents/${encodeURIComponent(filename)}`, {method: "DELETE"});
+                    if (!response.ok) {
+                        const body = await response.json().catch(() => null);
+                        throw new Error(body?.detail || `Failed to delete document (HTTP ${response.status})`);
                     }
 
-                    const toast = document.createElement("div");
-                    toast.className = "delete-toast";
-                    toast.textContent = `Document "${filename}" deleted.`;
-                    documentsList.appendChild(toast);
-                }, 180);
-            } catch (error) {
-                console.error(error);
-                confirmation.innerHTML = '<p>Failed to delete document.</p>';
-            }
-        });
+                    card.classList.add("removing");
+                    setTimeout(() => {
+                        card.remove();
+                        if (documentsList.children.length === 0) {
+                            documentsList.innerHTML = '<p class="empty">No documents uploaded yet.</p>';
+                        }
 
-        cancelButton.addEventListener("click", () => {
-            confirmation.remove();
+                        showToast(`Document "${filename}" deleted.`, "success");
+                    }, 180);
+                } catch (error) {
+                    console.error(error);
+                    showToast(`Failed to delete "${filename}": ${error.message}`, "error");
+                }
+            },
         });
-
-        buttons.append(confirmButton, cancelButton);
-        confirmation.append(message, buttons);
-        card.appendChild(confirmation);
     });
 
-    actions.append(viewButton, deleteButton);
-    card.append(header, actions, chunksContainer);
+    card.append(cardActions, header, chunksContainer);
     return card;
+}
+
+function showToast(text, variant) {
+    const toast = document.createElement("div");
+    toast.className = variant === "error" ? "delete-toast error" : "delete-toast";
+    toast.textContent = text;
+    toast.addEventListener("animationend", () => toast.remove());
+    documentsList.appendChild(toast);
 }
 
 async function loadDocuments() {
@@ -192,3 +182,4 @@ uploadForm.addEventListener("submit", async (event) => {
 });
 
 loadDocuments();
+refreshDocumentsButton.addEventListener("click", loadDocuments);

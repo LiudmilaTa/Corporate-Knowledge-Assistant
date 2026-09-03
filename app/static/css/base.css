@@ -197,3 +197,57 @@ button:disabled {
     text-align: center;
     padding: 30px;
 }
+
+@keyframes cardAppear {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    animation: cardAppear 0.15s ease both;
+}
+
+.modal-box {
+    background: white;
+    padding: 24px;
+    border-radius: 14px;
+    width: 90%;
+    max-width: 380px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+}
+
+.modal-box h3 {
+    margin: 0 0 10px;
+    color: #991b1b;
+}
+
+.modal-box p {
+    margin: 0 0 20px;
+    color: #374151;
+    line-height: 1.5;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.modal-buttons button {
+    padding: 8px 16px;
+    font-size: 14px;
+    border-radius: 10px;
+}

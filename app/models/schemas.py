@@ -2,10 +2,12 @@ from pydantic import BaseModel
 
 class QuestionRequest(BaseModel):
     question: str
+    filename: str | None = None
 
 class Source(BaseModel):
     filename: str
     page: int
+    excerpt: str
 
 class QuestionResponse(BaseModel):
     answer: str

@@ -1,55 +1,37 @@
 # Corporate Knowledge Assistant
 
-## 1. Project Overview
+## Overview
 
-## 2. Problem Statement
+This project is a lightweight RAG application for searching and querying internal documents. The main goal is to let users upload PDF files, index their content, and ask questions using the most relevant retrieved chunks.
 
-## 3. Architecture
+## Architecture
 
-Diagram:
+The flow is simple:
 
-User
- |
-FastAPI
- |
-RAG Pipeline
- |
-Embedding Model
- |
-pgvector
- |
-LLM
+1. User uploads a PDF document.
+2. The document is parsed and split into text chunks.
+3. Each chunk is embedded and stored in PostgreSQL with pgvector.
+4. A user question is embedded and matched against stored chunks.
+5. The most relevant chunks are passed to an LLM to produce an answer with source references.
 
+## Main components
 
-## 4. RAG Pipeline
+- FastAPI app for the web API and UI routes
+- Document ingestion pipeline for PDF processing
+- Embedding and vector search layer
+- LLM integration for answer generation
+- SQLAlchemy models and Alembic migrations for persistence
 
-1. Document upload
-2. Text extraction
-3. Chunking
-4. Embedding generation
-5. Vector storage
-6. Similarity search
-7. Context generation
-8. LLM response
+## Storage model
 
+The core table stores document chunks together with their embeddings:
 
-## 5. Technology Decisions
+- filename
+- page
+- chunk_id
+- content
+- embedding
 
-Why pgvector?
-Why local embeddings?
-Why Ollama?
+## Notes
 
-
-## 6. Database Design
-
-documents table
-
-
-## 7. Evaluation Strategy
-
-Retrieval quality
-Answer relevance
-Latency
-
-
-## 8. Future Agents / MCP Architecture
+The current implementation focuses on a simple, testable MVP. It is intentionally compact and suitable for local development and portfolio demonstration.

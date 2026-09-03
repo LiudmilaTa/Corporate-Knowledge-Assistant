@@ -1,8 +1,7 @@
 from app.database import get_connection
 
+def test_database_connection_can_be_established():
+    conn = get_connection()
 
-conn = get_connection()
-
-print("Connection successful")
-
-conn.close()
+    assert conn is not None
+    conn.close()

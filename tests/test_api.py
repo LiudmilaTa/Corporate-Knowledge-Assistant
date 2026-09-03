@@ -1,11 +1,10 @@
 from fastapi.testclient import TestClient
 
-from app.main import app
-from app.db.session import SessionLocal
-from app.models.chat_message import ChatMessage
-
 import app.api.routes as routes
-
+from app.db.session import SessionLocal
+from app.main import app
+from app.models.chat_message import ChatMessage
+from app.models.document import Document
 
 client = TestClient(app)
 
@@ -38,6 +37,7 @@ def test_ask_saves_chat_message(monkeypatch):
                 {
                     "filename": "test.pdf",
                     "page": 1,
+                    "excerpt": "Test excerpt",
                 }
             ],
         }
@@ -73,6 +73,21 @@ def test_ask_saves_chat_message(monkeypatch):
         assert message is not None
         assert message.answer == "Test answer"
 
+def test_ask_returns_service_message_when_database_is_unavailable(monkeypatch):
+    def fake_ask_question(question):
+        raise RuntimeError("connection timeout expired")
+
+    monkeypatch.setattr(routes, "ask_question", fake_ask_question)
+
+    response = client.post(
+        "/ask",
+        json={"question": "What is this document about?"},
+    )
+
+    assert response.status_code == 200
+    assert "Database is not available" in response.json()["answer"]
+
+
 def test_upload_document(monkeypatch):
     def fake_ingest_document(file_path, filename):
         return 3
@@ -100,3 +115,58 @@ def test_upload_document(monkeypatch):
 
     assert data["filename"] == "test.pdf"
     assert data["chunks"] == 3
+
+
+def test_delete_document_by_filename_removes_all_chunks():
+    unique_filename = "delete-me-regression.pdf"
+
+    with SessionLocal() as session:
+        session.add_all(
+            [
+                Document(
+                    filename=unique_filename,
+                    page=1,
+                    chunk_id=1,
+                    content="chunk one",
+                    embedding=[0.0] * 384,
+                ),
+                Document(
+                    filename=unique_filename,
+                    page=2,
+                    chunk_id=2,
+                    content="chunk two",
+                    embedding=[0.0] * 384,
+                ),
+                Document(
+                    filename="keep-me.pdf",
+                    page=1,
+                    chunk_id=1,
+                    content="keep",
+                    embedding=[0.0] * 384,
+                ),
+            ]
+        )
+        session.commit()
+
+    response = client.delete(f"/documents/{unique_filename}")
+
+    assert response.status_code == 200
+
+    with SessionLocal() as session:
+        deleted_rows = (
+            session.query(Document)
+            .filter(Document.filename == unique_filename)
+            .all()
+        )
+        remaining_rows = (
+            session.query(Document)
+            .filter(Document.filename == "keep-me.pdf")
+            .all()
+        )
+
+    assert deleted_rows == []
+    assert any(row.filename == "keep-me.pdf" for row in remaining_rows)
+
+    with SessionLocal() as session:
+        session.query(Document).filter(Document.filename == "keep-me.pdf").delete()
+        session.commit()
