@@ -5,6 +5,27 @@ const answer = document.getElementById("answer");
 const sources = document.getElementById("sources");
 const historyContainer = document.getElementById("chat-history");
 const refreshHistoryButton = document.getElementById("refresh-history");
+const documentFilter = document.getElementById("document-filter");
+
+async function loadDocumentFilter() {
+    try {
+        const response = await fetch("/documents");
+        if (!response.ok) {
+            throw new Error(`HTTP error: ${response.status}`);
+        }
+
+        const documents = await response.json();
+        const filenames = [...new Set(documents.map((document) => document.filename).filter(Boolean))];
+        filenames.forEach((filename) => {
+            const option = document.createElement("option");
+            option.value = filename;
+            option.textContent = filename;
+            documentFilter.appendChild(option);
+        });
+    } catch (error) {
+        console.error("Failed to load document list", error);
+    }
+}
 
 function setLoadingState(isLoading) {
     loading.style.display = isLoading ? "flex" : "none";
@@ -118,7 +139,7 @@ form.addEventListener("submit", async (event) => {
         const response = await fetch("/ask", {
             method: "POST",
             headers: {"Content-Type": "application/json"},
-            body: JSON.stringify({question: input.value}),
+            body: JSON.stringify({question: input.value, filename: documentFilter.value || null}),
         });
         const data = await response.json();
 
@@ -140,7 +161,7 @@ form.addEventListener("submit", async (event) => {
             sources.appendChild(card);
         });
     } catch (error) {
-        answer.textContent = "Error while processing request";
+        answer.textContent = "Database is not available. Start PostgreSQL and try again.";
         console.error(error);
     } finally {
         setLoadingState(false);
@@ -174,4 +195,5 @@ async function loadChatHistory() {
 }
 
 refreshHistoryButton.addEventListener("click", loadChatHistory);
+loadDocumentFilter();
 loadChatHistory();

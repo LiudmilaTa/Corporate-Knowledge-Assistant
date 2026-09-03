@@ -22,7 +22,10 @@ def ask(request: QuestionRequest):
     logger.info("Question received: %s", request.question)
 
     try:
-        result = ask_question(request.question)
+        if request.filename:
+            result = ask_question(request.question, filename=request.filename)
+        else:
+            result = ask_question(request.question)
         logger.info("RAG answer generated")
 
         with SessionLocal() as session:
@@ -37,6 +40,12 @@ def ask(request: QuestionRequest):
 
         logger.info("Chat message saved")
         return result
+    except RuntimeError as exc:
+        logger.exception("Error while processing ask request: %s", exc)
+        return {
+            "answer": "Database is not available. Start PostgreSQL and try again.",
+            "sources": [],
+        }
     except NoDocumentsIndexedError:
         logger.warning("No documents indexed")
         return {

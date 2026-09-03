@@ -3,6 +3,28 @@
     white-space: pre-wrap;
 }
 
+#document-filter {
+    flex: 0 1 150px;
+    min-width: 0;
+    padding: 0 14px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background: white;
+    color: #374151;
+    font-size: 15px;
+}
+
+@media (max-width: 640px) {
+    #ask-form {
+        flex-direction: column;
+    }
+
+    #document-filter,
+    button.primary-action {
+        width: 100%;
+    }
+}
+
 #loading {
     display: none;
     margin-top: 25px;

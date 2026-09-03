@@ -2,6 +2,7 @@ from pydantic import BaseModel
 
 class QuestionRequest(BaseModel):
     question: str
+    filename: str | None = None
 
 class Source(BaseModel):
     filename: str

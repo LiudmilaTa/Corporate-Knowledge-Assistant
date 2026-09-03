@@ -73,6 +73,21 @@ def test_ask_saves_chat_message(monkeypatch):
         assert message is not None
         assert message.answer == "Test answer"
 
+def test_ask_returns_service_message_when_database_is_unavailable(monkeypatch):
+    def fake_ask_question(question):
+        raise RuntimeError("connection timeout expired")
+
+    monkeypatch.setattr(routes, "ask_question", fake_ask_question)
+
+    response = client.post(
+        "/ask",
+        json={"question": "What is this document about?"},
+    )
+
+    assert response.status_code == 200
+    assert "Database is not available" in response.json()["answer"]
+
+
 def test_upload_document(monkeypatch):
     def fake_ingest_document(file_path, filename):
         return 3
