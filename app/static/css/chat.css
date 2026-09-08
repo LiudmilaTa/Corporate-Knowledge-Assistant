@@ -4,22 +4,46 @@
 }
 
 #document-filter {
-    flex: 0 1 150px;
+    width: 100%;
     min-width: 0;
-    padding: 0 14px;
+    padding: 0 40px 0 14px;
     border: 1px solid #ddd;
     border-radius: 10px;
     background: white;
     color: #374151;
     font-size: 15px;
+    box-sizing: border-box;
+}
+
+.document-filter-wrap {
+    position: relative;
+    grid-column: 1 / -1;
+}
+
+.document-filter-wrap::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    width: 7px;
+    height: 7px;
+    border-right: 2px solid #374151;
+    border-bottom: 2px solid #374151;
+    transform: translateY(-65%) rotate(45deg);
+    pointer-events: none;
+}
+
+#document-filter {
+    appearance: none;
 }
 
 @media (max-width: 640px) {
     #ask-form {
+        display: flex;
         flex-direction: column;
     }
 
-    #document-filter,
+    .document-filter-wrap,
     button.primary-action {
         width: 100%;
     }

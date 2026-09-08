@@ -25,9 +25,11 @@
                     <p>Search across uploaded files with a natural language question.</p>
                 </div>
                 <form id="ask-form">
-                    <select id="document-filter" name="filename" aria-label="Document">
-                        <option value="">All documents</option>
-                    </select>
+                    <div class="document-filter-wrap">
+                        <select id="document-filter" name="filename" aria-label="Document">
+                            <option value="">All documents</option>
+                        </select>
+                    </div>
                     <input
                         type="text"
                         name="question"
