@@ -1,5 +1,4 @@
-from app.services.splitter import split_text
-from app.services.splitter import split_pages
+from app.services.splitter import split_pages, split_text
 
 
 def test_small_text_stays_in_one_chunk():

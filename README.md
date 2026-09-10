@@ -4,11 +4,17 @@
 
 ![Application screenshot](docs/images/chat.jpg)
 
+![Application screenshot](docs/images/documents.jpg)
+
 ## Product overview
 
 Corporate Knowledge Assistant turns a collection of internal PDFs into a searchable knowledge base. Users can upload documents, ask questions in different languages, and receive grounded answers with page-level sources.
 
 The project is designed as a focused portfolio example of a production-shaped RAG workflow: document ingestion, vector retrieval, query improvement, answer generation, persistence, and automated tests.
+
+## Project status
+
+The core MVP is implemented and works locally with PostgreSQL, pgvector, and Ollama. The project is still in active development: the current focus is improving reliability, evaluation, and the path from a local portfolio application to a deployable internal tool.
 
 ## Highlights
 
@@ -87,6 +93,7 @@ POSTGRES_PORT=5433
 POSTGRES_DB=rag_db
 POSTGRES_USER=rag_user
 POSTGRES_PASSWORD=rag_password
+POSTGRES_CONNECT_TIMEOUT=5
 HF_HUB_DISABLE_TELEMETRY=1
 ```
 
@@ -105,11 +112,32 @@ http://localhost:8000
 
 ## Testing
 
-Run the main regression suite:
+Run unit and service-level tests without external services:
 
 ```bash
-uv run pytest -q tests/test_rag.py tests/test_api.py tests/test_splitter.py tests/test_processor.py tests/test_ingestion.py tests/test_pdf.py tests/test_search.py tests/test_connection.py tests/test_db.py tests/test_llm.py tests/test_model.py
+uv run pytest -q tests/test_rag.py tests/test_splitter.py tests/test_processor.py tests/test_pdf.py tests/test_model.py
 ```
+
+Run the full integration suite after PostgreSQL is running and migrations are applied:
+
+```bash
+uv run pytest -q
+```
+
+Database connection attempts fail after five seconds by default. Override this with
+`POSTGRES_CONNECT_TIMEOUT` when working with a remote database.
+
+## Roadmap
+
+Planned improvements:
+
+- Add authentication and document-level access control for corporate use.
+- Move PDF parsing and embedding generation to background jobs with progress reporting.
+- Add OCR support for scanned PDFs and improve extraction of tables and complex layouts.
+- Introduce a RAG evaluation set with retrieval and answer-quality metrics.
+- Add reranking, configurable retrieval parameters, and better handling of long contexts.
+- Add health checks, structured observability, CI checks, and a deployment configuration.
+- Improve document lifecycle management with metadata, versioning, and re-indexing controls.
 
 ## Configuration
 
@@ -121,3 +149,9 @@ uv run pytest -q tests/test_rag.py tests/test_api.py tests/test_splitter.py test
 
 - [Project structure](docs/PROJECT_STRUCTURE.md): repository tree and responsibility of each module
 - [Project details](docs/PROJECT_DETAILS.md): architecture, storage model, and implementation notes
+
+## License
+
+This is proprietary software. The source code may be viewed, but use, copying,
+modification, and distribution require prior written permission from the
+copyright holder. See the [license terms](LICENSE).

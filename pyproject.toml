@@ -3,6 +3,7 @@ name = "corporate-knowledge-assistant"
 version = "0.1.0"
 description = "RAG-powered corporate knowledge assistant"
 readme = "README.md"
+license = { file = "LICENSE" }
 authors = [
     { name = "taganliu", email = "taganliu@cvut.cz" }
 ]

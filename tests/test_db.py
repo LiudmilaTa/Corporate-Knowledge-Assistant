@@ -2,6 +2,7 @@ from app.db.session import SessionLocal
 from app.models.document import Document
 from app.services.vector_db import save_document
 
+
 def test_save_document_accepts_embedding_payload():
     fake_embedding = [0.1] * 384
 

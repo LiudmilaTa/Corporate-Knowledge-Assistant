@@ -1,8 +1,14 @@
 import logging
+import os
+import tempfile
 from pathlib import Path
 
+import psycopg
+import requests
 from fastapi import APIRouter, File, HTTPException, UploadFile
+from fastapi.concurrency import run_in_threadpool
 from sqlalchemy import select
+from sqlalchemy.exc import SQLAlchemyError
 
 from app.db.session import SessionLocal
 from app.models.chat_message import ChatMessage
@@ -16,6 +22,7 @@ logger = logging.getLogger(__name__)
 
 UPLOAD_DIR = Path("uploads")
 UPLOAD_DIR.mkdir(exist_ok=True)
+MAX_UPLOAD_SIZE = 25 * 1024 * 1024
 
 @router.post("/ask", response_model=QuestionResponse)
 def ask(request: QuestionRequest):
@@ -40,10 +47,16 @@ def ask(request: QuestionRequest):
 
         logger.info("Chat message saved")
         return result
-    except RuntimeError as exc:
-        logger.exception("Error while processing ask request: %s", exc)
+    except (psycopg.Error, SQLAlchemyError) as exc:
+        logger.exception("Database error while processing ask request: %s", exc)
         return {
             "answer": "Database is not available. Start PostgreSQL and try again.",
+            "sources": [],
+        }
+    except requests.RequestException as exc:
+        logger.exception("LLM service error while processing ask request: %s", exc)
+        return {
+            "answer": "The local AI service is not available. Start Ollama and try again.",
             "sources": [],
         }
     except NoDocumentsIndexedError:
@@ -62,15 +75,37 @@ def ask(request: QuestionRequest):
 
 @router.post("/upload")
 async def upload_document(file: UploadFile = File(...)):
+    if not file.filename or Path(file.filename).suffix.lower() != ".pdf":
+        raise HTTPException(status_code=415, detail="Only PDF files are supported")
+
     filename = Path(file.filename).name
     logger.info("Document upload started: %s", filename)
     file_path = UPLOAD_DIR / filename
+    temporary_path = None
 
-    with open(file_path, "wb") as buffer:
-        while chunk := await file.read(1024 * 1024):
-            buffer.write(chunk)
+    try:
+        with tempfile.NamedTemporaryFile(
+            mode="wb", delete=False, dir=UPLOAD_DIR, suffix=".upload"
+        ) as buffer:
+            temporary_path = Path(buffer.name)
+            bytes_written = 0
+            while chunk := await file.read(1024 * 1024):
+                bytes_written += len(chunk)
+                if bytes_written > MAX_UPLOAD_SIZE:
+                    raise HTTPException(status_code=413, detail="PDF file is too large")
+                buffer.write(chunk)
 
-    count = ingest_document(str(file_path), filename)
+        count = await run_in_threadpool(ingest_document, str(temporary_path), filename)
+        os.replace(temporary_path, file_path)
+    except HTTPException:
+        raise
+    except (OSError, ValueError) as exc:
+        logger.exception("Document upload failed: %s", exc)
+        raise HTTPException(status_code=400, detail="Could not process the PDF file") from exc
+    finally:
+        if temporary_path and temporary_path.exists():
+            temporary_path.unlink()
+        await file.close()
 
     logger.info("Document uploaded and indexed: %s (%s chunks)", filename, count)
     return {"filename": file.filename, "chunks": count}
@@ -111,6 +146,9 @@ def delete_document(filename: str):
             session.delete(document)
 
         session.commit()
+        file_path = UPLOAD_DIR / Path(filename).name
+        if file_path.exists():
+            file_path.unlink()
         logger.info("Deleted %s chunk(s) for document: %r", len(documents_to_delete), filename)
         return {
             "message": "Document deleted",

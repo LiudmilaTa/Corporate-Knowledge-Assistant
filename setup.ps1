@@ -90,6 +90,7 @@ POSTGRES_PORT=5433
 POSTGRES_DB=rag_db
 POSTGRES_USER=rag_user
 POSTGRES_PASSWORD=rag_password
+POSTGRES_CONNECT_TIMEOUT=5
 HF_HUB_DISABLE_TELEMETRY=1
 '@ | Set-Content -Path .env
     Write-Host "Created .env with default settings." -ForegroundColor Green

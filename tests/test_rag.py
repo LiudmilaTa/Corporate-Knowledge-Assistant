@@ -1,5 +1,7 @@
-from app.services import rag
 import pytest
+
+from app.services import rag
+
 
 def test_ask_question_raises_when_no_results(monkeypatch):
     monkeypatch.setattr(rag, "create_embedding", lambda question: [0.1, 0.2])

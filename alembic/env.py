@@ -37,6 +37,7 @@ database_url = (
     f"{os.getenv('POSTGRES_PORT')}/"
     f"{os.getenv('POSTGRES_DB')}"
 )
+connect_timeout = int(os.getenv("POSTGRES_CONNECT_TIMEOUT", "5"))
 
 config.set_main_option("sqlalchemy.url", database_url)
 
@@ -75,6 +76,7 @@ def run_migrations_online() -> None:
         config.get_section(config.config_ini_section, {}),
         prefix="sqlalchemy.",
         poolclass=pool.NullPool,
+        connect_args={"connect_timeout": connect_timeout},
     )
 
     with connectable.connect() as connection:

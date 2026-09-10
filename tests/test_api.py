@@ -1,3 +1,4 @@
+import psycopg
 from fastapi.testclient import TestClient
 
 import app.api.routes as routes
@@ -75,7 +76,7 @@ def test_ask_saves_chat_message(monkeypatch):
 
 def test_ask_returns_service_message_when_database_is_unavailable(monkeypatch):
     def fake_ask_question(question):
-        raise RuntimeError("connection timeout expired")
+        raise psycopg.Error("connection timeout expired")
 
     monkeypatch.setattr(routes, "ask_question", fake_ask_question)
 
@@ -115,6 +116,21 @@ def test_upload_document(monkeypatch):
 
     assert data["filename"] == "test.pdf"
     assert data["chunks"] == 3
+
+
+def test_upload_rejects_non_pdf():
+    response = client.post(
+        "/upload",
+        files={"file": ("notes.txt", b"not a PDF", "text/plain")},
+    )
+
+    assert response.status_code == 415
+
+
+def test_ask_rejects_empty_question():
+    response = client.post("/ask", json={"question": ""})
+
+    assert response.status_code == 422
 
 
 def test_delete_document_by_filename_removes_all_chunks():

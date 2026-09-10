@@ -4,6 +4,11 @@ body {
     margin: 0;
 }
 
+html,
+body {
+    min-height: 100%;
+}
+
 .container {
     width: min(1280px, calc(100% - 48px));
     margin: 24px auto;
@@ -11,6 +16,7 @@ body {
     padding: 40px 48px;
     border-radius: 20px;
     box-shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
+    box-sizing: border-box;
 }
 
 main {

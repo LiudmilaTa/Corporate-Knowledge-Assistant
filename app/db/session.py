@@ -14,8 +14,9 @@ DATABASE_URL = (
     f"{os.getenv('POSTGRES_PORT')}/"
     f"{os.getenv('POSTGRES_DB')}"
 )
+CONNECT_TIMEOUT = int(os.getenv("POSTGRES_CONNECT_TIMEOUT", "5"))
 
-engine = create_engine(DATABASE_URL)
+engine = create_engine(DATABASE_URL, connect_args={"connect_timeout": CONNECT_TIMEOUT})
 
 SessionLocal = sessionmaker(
     bind=engine,

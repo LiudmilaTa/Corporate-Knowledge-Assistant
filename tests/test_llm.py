@@ -1,5 +1,6 @@
 from app.services.llm import generate_answer
 
+
 def test_generate_answer_returns_string_for_valid_prompt():
     context = """
     The company uses Python, PostgreSQL, and FastAPI.
