@@ -58,7 +58,53 @@ For the complete repository map and module responsibilities, see [Project struct
 | Local AI | Ollama |
 | Tooling | uv, pytest, Ruff, Docker Compose |
 
+## AI models
+
+The application uses two local models. They are separate: the embedding model creates vectors for document search, while the Ollama model rewrites questions and generates answers.
+
+### Embedding model
+
+- **Model:** `sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2`
+- **Source:** [Hugging Face](https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2)
+- **Purpose:** multilingual document and question embeddings
+- **Vector size:** 384 dimensions, matching the PostgreSQL schema
+
+**Why this model:** it is designed for multilingual semantic similarity, so a question and a relevant passage can match even when they are written in different languages. This is important for the assistant's cross-language search scenario. The 384-dimensional output keeps PostgreSQL and pgvector storage relatively compact while providing a good balance between retrieval quality and processing speed. The model is also directly supported by Sentence Transformers, which keeps local installation and inference simple.
+
+No manual installation is required. After `uv sync`, Sentence Transformers downloads the model automatically from Hugging Face the first time the application imports `app.services.embeddings` or processes a document. Internet access is required for this first download; the model is then reused from the local Hugging Face cache. To download it explicitly before starting the app, run:
+
+```powershell
+uv run python -c "from sentence_transformers import SentenceTransformer; SentenceTransformer('paraphrase-multilingual-MiniLM-L12-v2')"
+```
+
+### Answer-generation model
+
+- **Model:** `mistral` (the default configured in `app/services/llm.py`)
+- **Runtime and source:** [Ollama](https://ollama.com/), downloaded from the Ollama model registry
+- **Purpose:** query rewriting and answer generation
+
+**Why `mistral`:** it is a practical general-purpose model for a local RAG assistant. It can perform both query rewriting and concise grounded answer generation, so the project does not need separate models for these steps. Running it through Ollama keeps corporate documents on the local machine, avoids API costs and external service dependencies, and provides a simple, reproducible model interface. The model offers a useful balance of answer quality, response speed, and hardware requirements for a portfolio-scale local deployment.
+
+Install Ollama from the [official Windows download page](https://ollama.com/download/windows), then open a new PowerShell window and download the model:
+
+```powershell
+ollama pull mistral
+ollama list
+```
+
+Ollama Desktop normally starts the local service automatically. If it is not running, start it with `ollama serve` and keep that process open. The application expects the service at `http://localhost:11434/api/generate`.
+
+To use another model supported by Ollama, download it first and set its name in `.env`:
+
+```env
+OLLAMA_MODEL=llama3.2
+```
+
+The model must be available locally before asking questions. The embedding model must not be changed without also updating the database vector dimension and re-indexing documents.
+
 ## Quick start
+
+Before starting the application, install Docker Desktop, `uv`, and Ollama. Download the default LLM with `ollama pull mistral` as described in [AI models](#ai-models). The setup script installs the Python dependencies and starts PostgreSQL, but it does not install Ollama or download models.
 
 ### One-click setup on Windows
 
@@ -95,16 +141,19 @@ POSTGRES_USER=rag_user
 POSTGRES_PASSWORD=rag_password
 POSTGRES_CONNECT_TIMEOUT=5
 HF_HUB_DISABLE_TELEMETRY=1
+OLLAMA_MODEL=mistral
 ```
 
-3. Start PostgreSQL and the app:
+3. Install and download the local AI models as described in [AI models](#ai-models).
+
+4. Start PostgreSQL and the app:
 
 ```bash
 docker compose up -d
 uv run uvicorn app.main:app --reload
 ```
 
-4. Open the app at:
+5. Open the app at:
 
 ```text
 http://localhost:8000
@@ -143,7 +192,8 @@ Planned improvements:
 
 - The app expects an Ollama endpoint at `http://localhost:11434/api/generate`.
 - PostgreSQL is exposed locally on port `5433` by Docker Compose.
-- A complete local configuration example is included in the manual setup section above.
+- `OLLAMA_MODEL` and model download details are documented in [AI models](#ai-models).
+- A complete database configuration example is included in the manual setup section above.
 
 ## Documentation
 
