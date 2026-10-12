@@ -65,8 +65,6 @@ Configuration: `k=5`, maximum relevant cosine distance `0.6`, multilingual embed
 
 Both reports contain the same 32 case IDs and the same recorded configuration. The code fix changed exact statutory-section matching so that `§ 1` is no longer treated as an exact match for `§ 10`, `§ 175`, or `§ 1a`. The metric increases are consistent with this fix, particularly for ranking, but they are evidence supporting the change—not proof that the remaining retrieval issues have been solved.
 
-The latest run printed `Evaluation gates passed` because it was run **without `--min` thresholds or a baseline comparison**. This only means that evaluation completed; it does not mean the system reached a quality target such as 0.80.
-
 ### Results Analysis
 
 - **Retrieval is the main bottleneck.** `Recall@5 = 0.431`; the expected page was absent from the top five in 15 of 29 answerable cases. `Hit rate@5 = 0.483`. Many answers therefore start with incomplete or irrelevant evidence.
@@ -90,8 +88,6 @@ Work from retrieval toward generation so prompt changes do not mask missing evid
 | 6 | After retrieval improves, refine the answer prompt to require context-grounded claims, cautious abstention when evidence is missing, and clear source references. | Improve faithfulness, correctness, and answer relevance; a prompt cannot compensate for missing retrieved evidence. | Manually review legal answers and abstentions, including conditions and exceptions. |
 | 7 | Calibrate the LLM judge against human labels and, if practical, use an independent judge model. Expand and balance the golden set. | Increase confidence in generation-quality measurements and broaden regression coverage; this does not directly improve application answers. | Track judge-human agreement and keep some cases as a stable holdout set. |
 
-Do not set a `0.80` threshold just because it appeared in an example command. Choose thresholds after reviewing the labels and defining a target quality level. A new baseline should be created after the page/label audit and the first retrieval-improvement iteration.
-
 ## Re-running the Evaluation
 
 Start PostgreSQL, ensure the exact versions of all three PDFs are indexed, and verify that Ollama is available. Save each new report under a different name rather than overwriting earlier runs:
@@ -102,12 +98,4 @@ uv run python -m app.evaluate `
   --dataset evals/dataset.json `
   --output evals/results/candidate.json `
   --k 5
-```
-
-The CLI prints progress for each case and pipeline stage. `evals/results/` is excluded from Git because reports contain questions, model-generated answers, and retrieved document text. The aggregate results above are recorded here for reference.
-
-Unit tests for the evaluator that do not require PostgreSQL or Ollama:
-
-```powershell
-uv run pytest -q tests/test_evaluation.py tests/test_rag.py
 ```
