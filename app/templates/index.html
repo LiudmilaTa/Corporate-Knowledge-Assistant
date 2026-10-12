@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Corporate Knowledge Assistant</title>
-    <link rel="stylesheet" href="/static/css/base.css?v=8">
-    <link rel="stylesheet" href="/static/css/chat.css?v=8">
+    <link rel="stylesheet" href="/static/css/base.css?v=9">
+    <link rel="stylesheet" href="/static/css/chat.css?v=9">
 </head>
 <body>
     <div class="container">
@@ -23,6 +23,10 @@
                 <div class="action-intro">
                     <h2>Ask documents</h2>
                     <p>Search across uploaded files with a natural language question.</p>
+                </div>
+                <div id="startup-status" class="startup-status" role="status" aria-live="polite">
+                    <div class="spinner" aria-hidden="true"></div>
+                    <span id="startup-status-message">Loading the AI embedding model. This can take a few minutes the first time; you can keep this page open.</span>
                 </div>
                 <form id="ask-form">
                     <div class="document-filter-wrap">
@@ -66,7 +70,7 @@
         </main>
     </div>
 
-    <script src="/static/js/modal.js?v=8"></script>
-    <script src="/static/js/chat.js?v=8"></script>
+    <script src="/static/js/modal.js?v=9"></script>
+    <script src="/static/js/chat.js?v=9"></script>
 </body>
 </html>

@@ -14,7 +14,14 @@ def _section_references(question):
 def has_exact_section_reference(question, content):
     references = _section_references(question)
     normalized_content = re.sub(r"§\s*", "§", content, flags=re.IGNORECASE)
-    return any(reference.casefold() in normalized_content.casefold() for reference in references)
+    return any(
+        re.search(
+            rf"{re.escape(reference)}(?![A-Za-z0-9])",
+            normalized_content,
+            flags=re.IGNORECASE,
+        )
+        for reference in references
+    )
 
 
 def _query_terms(question):

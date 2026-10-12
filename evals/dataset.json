@@ -1,0 +1,433 @@
+[
+  {
+    "id": "326-scope-cs",
+    "question": "Co upravuje § 1 zákona č. 326/1999 Sb.?",
+    "expected_sources": [
+      {
+        "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+        "page": 1
+      }
+    ],
+    "reference_answer": "Zákon upravuje podmínky vstupu cizince na území České republiky, jeho vycestování a pobytu na území a vymezuje působnost Policie České republiky, Ministerstva vnitra a Ministerstva zahraničních věcí v této oblasti.",
+    "answerable": true,
+    "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf"
+  },
+  {
+    "id": "326-scope-ru",
+    "question": "Что регулирует § 1 Закона № 326/1999 Sb.?",
+    "expected_sources": [
+      {
+        "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+        "page": 1
+      }
+    ],
+    "reference_answer": "Закон регулирует условия въезда иностранца в Чешскую Республику, его выезда и пребывания на её территории, а также определяет полномочия полиции Чехии, Министерства внутренних дел и Министерства иностранных дел в этой области.",
+    "answerable": true,
+    "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf"
+  },
+  {
+    "id": "326-scope-en",
+    "question": "What does Section 1 of Act No. 326/1999 Sb. regulate?",
+    "expected_sources": [
+      {
+        "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+        "page": 1
+      }
+    ],
+    "reference_answer": "It regulates the conditions for a foreign national's entry into, departure from, and stay in the Czech Republic, and defines the responsibilities of the Czech Police, Ministry of the Interior, and Ministry of Foreign Affairs in this area.",
+    "answerable": true,
+    "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf"
+  },
+  {
+    "id": "326-family-reunification-cs",
+    "question": "Kdo může podle § 42a žádat o dlouhodobý pobyt za účelem společného soužití rodiny?",
+    "expected_sources": [
+      {
+        "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+        "page": 18
+      }
+    ],
+    "reference_answer": "Mezi oprávněné žadatele patří mimo jiné manžel cizince s povoleným pobytem na území a nezletilé dítě cizince s povoleným pobytem nebo nezletilé dítě jeho manžela či manželky. § 42a stanoví také další kategorie rodinných příslušníků.",
+    "answerable": true,
+    "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf"
+  },
+  {
+    "id": "326-family-reunification-ru",
+    "question": "Кто может подать заявление на долгосрочное пребывание с целью совместного проживания семьи согласно § 42a?",
+    "expected_sources": [
+      {
+        "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+        "page": 18
+      }
+    ],
+    "reference_answer": "В частности, подать заявление могут супруг иностранца с разрешённым пребыванием в Чехии, а также несовершеннолетний ребёнок такого иностранца или его супруга. В § 42a перечислены и другие категории членов семьи.",
+    "answerable": true,
+    "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf"
+  },
+  {
+    "id": "326-family-reunification-en",
+    "question": "Who may apply for a long-term residence permit for family reunification under Section 42a?",
+    "expected_sources": [
+      {
+        "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+        "page": 18
+      }
+    ],
+    "reference_answer": "Eligible applicants include, among others, the spouse of a foreign national with permitted residence in the Czech Republic and that foreign national's minor child or the minor child of their spouse. Section 42a lists additional family-member categories.",
+    "answerable": true,
+    "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf"
+  },
+  {
+    "id": "435-purpose-cs",
+    "question": "Jaký je podle § 1 hlavní cíl státní politiky zaměstnanosti?",
+    "expected_sources": [
+      {
+        "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+        "page": 1
+      }
+    ],
+    "reference_answer": "Cílem státní politiky zaměstnanosti je dosažení plné zaměstnanosti a ochrana proti nezaměstnanosti.",
+    "answerable": true,
+    "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf"
+  },
+  {
+    "id": "435-purpose-ru",
+    "question": "Какова основная цель государственной политики занятости согласно § 1?",
+    "expected_sources": [
+      {
+        "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+        "page": 1
+      }
+    ],
+    "reference_answer": "Цель государственной политики занятости — достижение полной занятости и защита от безработицы.",
+    "answerable": true,
+    "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf"
+  },
+  {
+    "id": "435-purpose-en",
+    "question": "What is the main aim of state employment policy under Section 1?",
+    "expected_sources": [
+      {
+        "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+        "page": 1
+      }
+    ],
+    "reference_answer": "The aim of state employment policy is to achieve full employment and protect against unemployment.",
+    "answerable": true,
+    "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf"
+  },
+  {
+    "id": "435-participants-cs",
+    "question": "Kdo patří mezi účastníky právních vztahů podle § 3 odst. 1 zákona o zaměstnanosti?",
+    "expected_sources": [
+      {
+        "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+        "page": 2
+      }
+    ],
+    "reference_answer": "Patří mezi ně Česká republika jednající prostřednictvím ministerstva a Úřadu práce, fyzické osoby způsobilé být zaměstnancem včetně cizinců splňujících zákonné podmínky zaměstnávání, zaměstnavatelé a další právnické či fyzické osoby a subjekty vykonávající činnosti podle zákona.",
+    "answerable": true,
+    "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf"
+  },
+  {
+    "id": "435-participants-en",
+    "question": "Who are the participants in legal relations under Section 3(1) of the Employment Act?",
+    "expected_sources": [
+      {
+        "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+        "page": 2
+      }
+    ],
+    "reference_answer": "They include the Czech Republic acting through the Ministry and the Labour Office; individuals eligible to be employees, including foreign nationals who meet the statutory employment conditions; employers; and other legal or natural persons and entities carrying out activities under the Act.",
+    "answerable": true,
+    "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf"
+  },
+  {
+    "id": "500-public-service-cs",
+    "question": "Jaké povinnosti vůči dotčeným osobám stanoví § 4 správního řádu?",
+    "expected_sources": [
+      {
+        "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+        "page": 2
+      }
+    ],
+    "reference_answer": "Veřejná správa je službou veřejnosti. Správní orgán a osoby plnící jeho úkoly se mají chovat zdvořile, podle možností vycházet dotčeným osobám vstříc, v potřebných případech je poučit o právech a povinnostech, případně je předem informovat o úkonu a umožnit jim uplatňovat jejich práva a oprávněné zájmy.",
+    "answerable": true,
+    "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf"
+  },
+  {
+    "id": "500-public-service-ru",
+    "question": "Какие обязанности перед затрагиваемыми лицами устанавливает § 4 Административного кодекса?",
+    "expected_sources": [
+      {
+        "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+        "page": 2
+      }
+    ],
+    "reference_answer": "Публичное управление является службой обществу. Административный орган и лица, выполняющие его задачи, должны вести себя вежливо и, насколько возможно, идти затрагиваемым лицам навстречу; когда это необходимо, разъяснять им права и обязанности, заблаговременно уведомлять о действиях, если это нужно для защиты их прав и не ставит под угрозу цель действия, и позволять им осуществлять свои права и законные интересы.",
+    "answerable": true,
+    "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf"
+  },
+  {
+    "id": "500-public-service-en",
+    "question": "What duties toward affected persons are set out in Section 4 of the Administrative Procedure Code?",
+    "expected_sources": [
+      {
+        "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+        "page": 2
+      }
+    ],
+    "reference_answer": "Public administration is a service to the public. The administrative authority and those performing its tasks must act courteously and, where possible, accommodate affected persons; provide appropriate guidance about rights and duties when needed; give advance notice of an action when necessary to protect their rights and this does not endanger the purpose of the action; and allow them to exercise their rights and legitimate interests.",
+    "answerable": true,
+    "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf"
+  },
+  {
+    "id": "500-processing-cs",
+    "question": "Jak má správní orgán postupovat podle § 6 správního řádu při vyřizování věcí?",
+    "expected_sources": [
+      {
+        "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+        "page": 2
+      }
+    ],
+    "reference_answer": "Má věci vyřizovat bez zbytečných průtahů. Má postupovat tak, aby nevznikaly zbytečné náklady a dotčené osoby byly co nejméně zatěžovány; podklady má přednostně získávat z dostupných úředních evidencí a od dotčených osob je vyžadovat jen tehdy, stanoví-li to právní předpis.",
+    "answerable": true,
+    "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf"
+  },
+  {
+    "id": "500-processing-ru",
+    "question": "Как административный орган должен рассматривать дела согласно § 6 Административного кодекса?",
+    "expected_sources": [
+      {
+        "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+        "page": 2
+      }
+    ],
+    "reference_answer": "Он должен рассматривать дела без неоправданных задержек. Орган должен избегать лишних расходов и по возможности не обременять затрагиваемых лиц; сначала получать материалы из доступных официальных реестров и требовать документы от лица только тогда, когда этого требует нормативный акт.",
+    "answerable": true,
+    "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf"
+  },
+  {
+    "id": "500-processing-en",
+    "question": "How should an administrative authority handle matters under Section 6 of the Administrative Procedure Code?",
+    "expected_sources": [
+      {
+        "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+        "page": 2
+      }
+    ],
+    "reference_answer": "It must handle matters without undue delay. It should avoid unnecessary costs and burden affected persons as little as possible, obtain supporting materials from available official records first, and request documents from affected persons only when required by law.",
+    "answerable": true,
+    "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf"
+  },
+  {
+    "id": "absent-statistics-cs",
+    "question": "Kolik cizinců žilo v Praze v roce 2025?",
+    "expected_sources": [],
+    "reference_answer": "Tyto zákony neuvádějí statistický počet cizinců žijících v Praze v roce 2025. Asistent má sdělit, že v poskytnutých dokumentech tuto informaci nenašel.",
+    "answerable": false
+  },
+  {
+    "id": "absent-statistics-ru",
+    "question": "Сколько иностранцев проживало в Праге в 2025 году?",
+    "expected_sources": [],
+    "reference_answer": "В этих законах не приведена статистика о числе иностранцев, проживавших в Праге в 2025 году. Ассистент должен сообщить, что не нашёл эту информацию в предоставленных документах.",
+    "answerable": false
+  },
+  {
+    "id": "absent-statistics-en",
+    "question": "How many foreign nationals lived in Prague in 2025?",
+    "expected_sources": [],
+    "reference_answer": "These laws do not provide statistics on the number of foreign nationals living in Prague in 2025. The assistant should say that this information was not found in the supplied documents.",
+    "answerable": false
+  },
+  {
+    "id": "student-visa-time-cs",
+    "question": "Když si požádám o dlouhodobé vízum kvůli studiu, jak dlouho se na rozhodnutí čeká?",
+    "expected_sources": [
+      {
+        "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+        "page": 151
+      }
+    ],
+    "reference_answer": "U žádosti o vízum k pobytu nad 90 dnů za účelem studia stanoví § 169t lhůtu do 60 dnů ode dne podání žádosti. Jde o zákonnou lhůtu pro rozhodnutí, nikoli o záruku celkové doby včetně objednání termínu nebo případných dalších kroků.",
+    "answerable": true,
+    "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf"
+  },
+  {
+    "id": "student-visa-time-ru",
+    "question": "Если подать на долгосрочную визу для учёбы в Чехии, сколько обычно ждать решения?",
+    "expected_sources": [
+      {
+        "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+        "page": 151
+      }
+    ],
+    "reference_answer": "Для заявления на визу для пребывания свыше 90 дней с целью учёбы § 169t устанавливает срок принятия решения до 60 дней со дня подачи заявления. Это установленный законом срок рассмотрения, а не гарантия общего времени с учётом записи на подачу и других возможных этапов.",
+    "answerable": true,
+    "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf"
+  },
+  {
+    "id": "student-visa-time-en",
+    "question": "If I apply for a Czech long-stay visa to study, how long can the decision take?",
+    "expected_sources": [
+      {
+        "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+        "page": 151
+      }
+    ],
+    "reference_answer": "For an application for a visa for a stay exceeding 90 days for study, Section 169t sets a decision period of up to 60 days from the date the application is filed. This is the statutory decision period, not a guarantee of the total time including appointment availability or other steps.",
+    "answerable": true,
+    "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf"
+  },
+  {
+    "id": "employee-card-time-cs",
+    "question": "A když žádám o zaměstnaneckou kartu kvůli práci, jak dlouho na ni můžu čekat?",
+    "expected_sources": [
+      {
+        "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+        "page": 151
+      }
+    ],
+    "reference_answer": "U žádosti o zaměstnaneckou kartu je lhůta pro rozhodnutí do 60 dnů od podání. Ve zvlášť složitých případech nebo pokud ministerstvo požádá Úřad práce ČR o závazné stanovisko může být lhůta do 90 dnů.",
+    "answerable": true,
+    "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf"
+  },
+  {
+    "id": "employee-card-time-ru",
+    "question": "А если подаю на рабочую карту (zaměstnanecká karta), сколько ждать?",
+    "expected_sources": [
+      {
+        "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+        "page": 151
+      }
+    ],
+    "reference_answer": "По заявлению на zaměstnanecká karta срок принятия решения — до 60 дней со дня подачи. В особо сложном случае или если министерство запросит обязательное заключение Бюро труда Чехии срок может составить до 90 дней.",
+    "answerable": true,
+    "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf"
+  },
+  {
+    "id": "employee-card-time-en",
+    "question": "If I apply for an employee card for a job in Czechia, how long might it take?",
+    "expected_sources": [
+      {
+        "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+        "page": 151
+      }
+    ],
+    "reference_answer": "The decision period for an employee-card application is up to 60 days from filing. It may be up to 90 days in particularly complex cases or if the Ministry requests a binding opinion from the Czech Labour Office.",
+    "answerable": true,
+    "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf"
+  },
+  {
+    "id": "job-loss-employee-card-cs",
+    "question": "Když přijdu o práci a mám zaměstnaneckou kartu, kolik mám času najít si novou, než bude problém s pobytem?",
+    "expected_sources": [
+      {
+        "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+        "page": 59
+      }
+    ],
+    "reference_answer": "Podle § 63 platnost zaměstnanecké karty zaniká nejpozději po 90 dnech ode dne skončení posledního pracovního vztahu, který splňuje zákonné podmínky pro tuto kartu. Odstavec 3 stanoví výjimku, pokud cizinec před uplynutím této doby oznámí změnu zaměstnání podle § 42g odst. 7 nebo podá za splnění zákonných podmínek žádost o dlouhodobý pobyt za jiným účelem. Nejde tedy jednoduše o obecnou lhůtu, která sama zaručuje možnost zůstat nebo pracovat po celých 90 dnů; konkrétní situace a další podmínky jsou důležité.",
+    "answerable": true,
+    "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf"
+  },
+  {
+    "id": "job-loss-employee-card-ru",
+    "question": "Если меня уволили, а у меня рабочая карта, сколько есть времени найти новую работу, чтобы не было проблем с пребыванием?",
+    "expected_sources": [
+      {
+        "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+        "page": 59
+      }
+    ],
+    "reference_answer": "По § 63 действие zaměstnanecká karta прекращается не позднее чем через 90 дней после окончания последнего трудового отношения, соответствовавшего требованиям для этой карты. В § 63(3) предусмотрено исключение, если до истечения срока иностранец уведомит об изменении работы по § 42g(7) или при соблюдении условий подаст заявление на долгосрочное пребывание с другой целью. Это не означает безусловной гарантии права оставаться или работать все 90 дней: важны конкретные обстоятельства и выполнение других требований.",
+    "answerable": true,
+    "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf"
+  },
+  {
+    "id": "job-loss-employee-card-en",
+    "question": "I lost my job and have a Czech employee card. How long do I have to find another job before my residence status is affected?",
+    "expected_sources": [
+      {
+        "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+        "page": 59
+      }
+    ],
+    "reference_answer": "Under Section 63, the employee card expires no later than 90 days after the last qualifying employment relationship ends. Section 63(3) provides an exception if, before that period expires, the foreign national notifies the Ministry of a job change under Section 42g(7) or applies, subject to the statutory conditions, for long-term residence for another purpose. This should not be presented as an unconditional guarantee that the person may remain or work for all 90 days; the individual circumstances and other requirements matter.",
+    "answerable": true,
+    "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf"
+  },
+  {
+    "id": "supplement-documents-cs",
+    "question": "Úřad si ode mě vyžádal další dokumenty a já už je poslal. Za jak dlouho teď musí rozhodnout?",
+    "expected_sources": [
+      {
+        "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+        "page": 16
+      },
+      {
+        "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+        "page": 21
+      },
+      {
+        "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+        "page": 23
+      },
+      {
+        "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+        "page": 151
+      }
+    ],
+    "reference_answer": "Neexistuje jedna obecná nová lhůta, která by se vždy začala počítat znovu až od dodání dokumentů. Záleží na druhu žádosti a na tom, zda správní orgán řízení formálně přerušil. Podle § 45 odst. 2 správního řádu může úřad při výzvě k odstranění vad žádosti určit přiměřenou lhůtu a současně řízení přerušit. Je-li řízení přerušeno, podle § 65 odst. 1 lhůta pro vydání rozhodnutí neběží a po skončení přerušení nemůže uplynout dříve než za 15 dnů. Obecně § 71 správního řádu požaduje rozhodnout bez zbytečného odkladu, a nelze-li rozhodnout bezodkladně, stanoví základní lhůtu 30 dnů od zahájení řízení s možností prodloužení v zákonem uvedených případech. U pobytových žádostí se navíc uplatní zvláštní lhůta podle typu žádosti, například § 169t zákona č. 326/1999 Sb. stanoví pro dlouhodobé vízum za účelem studia 60 dnů a pro zaměstnaneckou kartu 60 dnů, ve stanovených složitých případech 90 dnů. Konkrétní zbývající dobu proto nelze určit bez typu žádosti, data podání a informace, zda bylo řízení formálně přerušeno.",
+    "answerable": true
+  },
+  {
+    "id": "supplement-documents-ru",
+    "question": "Ведомство попросило донести документы, я уже всё отправила. Сколько теперь ждать решения?",
+    "expected_sources": [
+      {
+        "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+        "page": 16
+      },
+      {
+        "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+        "page": 21
+      },
+      {
+        "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+        "page": 23
+      },
+      {
+        "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+        "page": 151
+      }
+    ],
+    "reference_answer": "Нет единого нового срока, который всегда начинается заново после отправки дополнительных документов. Всё зависит от вида заявления и от того, было ли производство официально приостановлено. По § 45(2) Административного кодекса ведомство может дать разумный срок на устранение недостатков заявления и одновременно приостановить производство. Если производство приостановлено, срок принятия решения согласно § 65(1) не течёт; после возобновления решения нельзя ожидать раньше чем по истечении 15 дней. В общем случае § 71 требует принять решение без неоправданной задержки, а если это невозможно — устанавливает основной срок 30 дней с начала производства, который может продлеваться в предусмотренных законом случаях. Для заявлений о пребывании также применяются специальные сроки по типу заявления: например, § 169t Закона № 326/1999 Sb. устанавливает до 60 дней для долгосрочной визы с целью учёбы и до 60 дней для zaměstnanecká karta, а в предусмотренных сложных случаях — до 90 дней. Поэтому оставшийся срок нельзя точно назвать без типа заявления, даты подачи и подтверждения формального приостановления производства.",
+    "answerable": true
+  },
+  {
+    "id": "supplement-documents-en",
+    "question": "The office asked me to send some missing documents, and I have sent them. How long do I have to wait for a decision now?",
+    "expected_sources": [
+      {
+        "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+        "page": 16
+      },
+      {
+        "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+        "page": 21
+      },
+      {
+        "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+        "page": 23
+      },
+      {
+        "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+        "page": 151
+      }
+    ],
+    "reference_answer": "There is no single new deadline that always restarts when supplementary documents are submitted. It depends on the type of application and whether the authority formally suspended the proceedings. Under Section 45(2) of the Administrative Procedure Code, the authority may set a reasonable period to remedy defects and suspend the proceedings at the same time. If proceedings are suspended, the decision period stops under Section 65(1); after the suspension ends, the deadline cannot expire earlier than 15 days later. In general, Section 71 requires a decision without undue delay and, if that is not possible, sets a basic period of 30 days from the start of proceedings, with extensions in cases specified by law. Residence applications also have type-specific deadlines: for example, Section 169t of Act No. 326/1999 Sb. sets up to 60 days for a long-stay study visa and up to 60 days for an employee card, or 90 days in specified complex cases. The remaining time cannot be determined without knowing the application type, filing date, and whether the proceedings were formally suspended.",
+    "answerable": true
+  }
+]

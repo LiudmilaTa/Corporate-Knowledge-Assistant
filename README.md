@@ -7,6 +7,7 @@ This project is a lightweight RAG application for searching and querying interna
 The core MVP is implemented and works locally with PostgreSQL, pgvector, and Ollama. The project is still in active development, with the current focus on reliability, evaluation, and the path from a local portfolio application to a deployable internal tool.
 
 For the architecture, models, project status, tests, roadmap, and implementation notes, see [Project details](docs/PROJECT_DETAILS.md). The repository map is available in [Project structure](docs/PROJECT_STRUCTURE.md).
+The local RAG evaluation methodology, results, and improvement plan are documented in [RAG evaluation](docs/RAG_EVALUATION.md).
 
 ## Installation
 

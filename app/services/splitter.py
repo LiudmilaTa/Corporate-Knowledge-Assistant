@@ -2,9 +2,12 @@ import re
 
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
+CHUNK_SIZE = 1000
+CHUNK_OVERLAP = 200
+
 splitter = RecursiveCharacterTextSplitter(
-    chunk_size=1000,
-    chunk_overlap=200,
+    chunk_size=CHUNK_SIZE,
+    chunk_overlap=CHUNK_OVERLAP,
 )
 
 
@@ -38,7 +41,7 @@ def split_text(text: str):
 
         # Маленький параграф оставляем целиком.
         # Большой — дополнительно режем.
-        if len(section_text) <= 1000:
+        if len(section_text) <= CHUNK_SIZE:
             chunks.append(section_text)
             continue
 
@@ -69,7 +72,7 @@ def split_pages(pages):
         section_body = "\n".join(current_text).strip()
         section_text = f"{current_section}\n{section_body}".strip()
 
-        if len(section_text) <= 1000:
+        if len(section_text) <= CHUNK_SIZE:
             chunks.append({
                 "page": current_page,
                 "content": section_text,

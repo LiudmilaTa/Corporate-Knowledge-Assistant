@@ -68,9 +68,11 @@ The project uses two different local AI models:
 
 The embedding model is `sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2`. It supports multilingual semantic search and produces vectors with 384 dimensions, which matches the `documents.embedding` column and its pgvector index. The model is published on [Hugging Face](https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2).
 
+The model is loaded asynchronously after the HTTP server starts. During the initial download or warm-up, `/` remains available and shows a loading indicator; `/health/ready` reports `loading`, `ready`, or `error`. Chat and PDF ingestion requests return HTTP 503 until the model is ready.
+
 The model was selected because the application must search corporate documents across languages. It maps semantically related text into a shared multilingual vector space, which allows a question in one language to retrieve a relevant passage in another. Its 384-dimensional vectors reduce storage and search cost compared with larger embedding models, while its direct Sentence Transformers integration makes local inference straightforward. This is a practical quality, speed, and resource trade-off for the current MVP.
 
-It is installed as part of the Python dependency `sentence-transformers`. The first import of `app.services.embeddings` downloads the model automatically from Hugging Face and stores it in the local Hugging Face cache. To pre-download it manually after `uv sync`, run:
+It is installed as part of the Python dependency `sentence-transformers`. At application startup, the model is loaded in a background thread and downloaded from Hugging Face if it is not already in the local cache. To pre-download it manually after `uv sync`, run:
 
 ```powershell
 uv run python -c "from sentence_transformers import SentenceTransformer; SentenceTransformer('paraphrase-multilingual-MiniLM-L12-v2')"
@@ -124,12 +126,44 @@ uv run pytest -q
 
 Database connection attempts fail after five seconds by default. Override this with `POSTGRES_CONNECT_TIMEOUT` when working with a remote database.
 
+## RAG evaluation
+
+The project includes a repeatable evaluation runner and a 32-case multilingual dataset based on three Czech laws. It measures page-level retrieval and uses a local Ollama judge to estimate context and answer quality. The detailed methodology, latest results, their limitations, and the prioritized improvement plan are in [RAG evaluation](RAG_EVALUATION.md).
+
+With PostgreSQL running, source documents indexed, and Ollama available, create a baseline report after reviewing the results:
+
+```powershell
+uv run python -m app.evaluate `
+  --dataset evals/dataset.json `
+  --output evals/results/baseline.json `
+  --k 5
+```
+
+Compare subsequent runs against that baseline:
+
+```powershell
+uv run python -m app.evaluate `
+  --dataset evals/dataset.json `
+  --output evals/results/candidate.json `
+  --baseline evals/results/baseline.json `
+  --max-regression 0.05 `
+  --k 5
+```
+
+The CLI prints the current case and RAG/judge stage. Reports are written under the ignored `evals/results/` directory. Re-index documents after changing chunking or embedding settings.
+
+The evaluator's unit tests do not require PostgreSQL or Ollama:
+
+```powershell
+uv run pytest -q tests/test_evaluation.py tests/test_rag.py
+```
+
 ## Roadmap
 
 - Add authentication and document-level access control for corporate use.
 - Move PDF parsing and embedding generation to background jobs with progress reporting.
 - Add OCR support for scanned PDFs and improve extraction of tables and complex layouts.
-- Introduce a RAG evaluation set with retrieval and answer-quality metrics.
+- Grow the labeled RAG evaluation set and calibrate its quality gates against human review.
 - Add reranking, configurable retrieval parameters, and better handling of long contexts.
 - Add health checks, structured observability, CI checks, and a deployment configuration.
 - Improve document lifecycle management with metadata, versioning, and re-indexing controls.
@@ -140,4 +174,3 @@ Database connection attempts fail after five seconds by default. Override this w
 - PostgreSQL is exposed locally on port `5433` by Docker Compose.
 - `OLLAMA_MODEL` controls the local answer-generation model.
 - Database settings are configured through `.env`; the installation example is in the root README.
-

@@ -6,6 +6,10 @@ const sources = document.getElementById("sources");
 const historyContainer = document.getElementById("chat-history");
 const refreshHistoryButton = document.getElementById("refresh-history");
 const documentFilter = document.getElementById("document-filter");
+const startupStatus = document.getElementById("startup-status");
+const startupStatusMessage = document.getElementById("startup-status-message");
+const questionInput = form.querySelector("input[name='question']");
+let embeddingModelReady = false;
 
 async function loadDocumentFilter() {
     try {
@@ -29,8 +33,46 @@ async function loadDocumentFilter() {
 
 function setLoadingState(isLoading) {
     loading.style.display = isLoading ? "flex" : "none";
-    button.disabled = isLoading;
+    button.disabled = isLoading || !embeddingModelReady;
     button.textContent = isLoading ? "Thinking..." : "Ask";
+}
+
+function setEmbeddingStatus(status) {
+    embeddingModelReady = status === "ready";
+    button.disabled = !embeddingModelReady;
+    questionInput.disabled = !embeddingModelReady;
+    documentFilter.disabled = !embeddingModelReady;
+
+    if (embeddingModelReady) {
+        startupStatus.hidden = true;
+        return;
+    }
+
+    startupStatus.hidden = false;
+    startupStatus.classList.toggle("error", status === "error");
+    startupStatus.querySelector(".spinner").hidden = status === "error";
+    startupStatusMessage.textContent = status === "error"
+        ? "The AI embedding model could not be loaded. Check the server output and model download/cache, then restart the app."
+        : "Loading the AI embedding model. This can take a few minutes the first time; you can keep this page open.";
+}
+
+async function checkEmbeddingStatus() {
+    try {
+        const response = await fetch("/health/ready");
+        if (!response.ok) {
+            throw new Error(`HTTP error: ${response.status}`);
+        }
+
+        const status = await response.json();
+        setEmbeddingStatus(status.embedding_model);
+        if (status.embedding_model === "loading") {
+            window.setTimeout(checkEmbeddingStatus, 2000);
+        }
+    } catch (error) {
+        console.error("Failed to check embedding model status", error);
+        startupStatusMessage.textContent = "Connecting to the application. Please keep this page open.";
+        window.setTimeout(checkEmbeddingStatus, 2000);
+    }
 }
 
 function renderSources(sourceList) {
@@ -142,6 +184,9 @@ form.addEventListener("submit", async (event) => {
             body: JSON.stringify({question: input.value, filename: documentFilter.value || null}),
         });
         const data = await response.json();
+        if (!response.ok) {
+            throw new Error(data.detail || `Request failed with status ${response.status}`);
+        }
 
         answer.textContent = data.answer ?? "";
         data.sources.forEach((source) => {
@@ -161,7 +206,7 @@ form.addEventListener("submit", async (event) => {
             sources.appendChild(card);
         });
     } catch (error) {
-        answer.textContent = "Database is not available. Start PostgreSQL and try again.";
+        answer.textContent = error.message || "The request failed. Please try again.";
         console.error(error);
     } finally {
         setLoadingState(false);
@@ -197,3 +242,4 @@ async function loadChatHistory() {
 refreshHistoryButton.addEventListener("click", loadChatHistory);
 loadDocumentFilter();
 loadChatHistory();
+checkEmbeddingStatus();

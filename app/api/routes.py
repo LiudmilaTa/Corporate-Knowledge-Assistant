@@ -14,6 +14,7 @@ from app.db.session import SessionLocal
 from app.models.chat_message import ChatMessage
 from app.models.document import Document
 from app.models.schemas import DocumentResponse, QuestionRequest, QuestionResponse
+from app.services.embeddings import is_embedding_model_loaded
 from app.services.ingestion import ingest_document
 from app.services.rag import NoDocumentsIndexedError, NoRelevantResultsError, ask_question
 
@@ -26,6 +27,12 @@ MAX_UPLOAD_SIZE = 25 * 1024 * 1024
 
 @router.post("/ask", response_model=QuestionResponse)
 def ask(request: QuestionRequest):
+    if not is_embedding_model_loaded():
+        raise HTTPException(
+            status_code=503,
+            detail="The embedding model is still loading. Please try again shortly.",
+        )
+
     logger.info("Question received: %s", request.question)
 
     try:
@@ -77,6 +84,11 @@ def ask(request: QuestionRequest):
 async def upload_document(file: UploadFile = File(...)):
     if not file.filename or Path(file.filename).suffix.lower() != ".pdf":
         raise HTTPException(status_code=415, detail="Only PDF files are supported")
+    if not is_embedding_model_loaded():
+        raise HTTPException(
+            status_code=503,
+            detail="The embedding model is still loading. Please try again shortly.",
+        )
 
     filename = Path(file.filename).name
     logger.info("Document upload started: %s", filename)

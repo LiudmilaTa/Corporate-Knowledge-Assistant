@@ -57,6 +57,26 @@
     color: #555;
 }
 
+.startup-status {
+    display: flex;
+    margin: 20px 0;
+    align-items: center;
+    gap: 12px;
+    color: #374151;
+}
+
+.startup-status[hidden] {
+    display: none;
+}
+
+.startup-status.error {
+    padding: 12px 16px;
+    border: 1px solid #fecaca;
+    border-radius: 10px;
+    background: #fef2f2;
+    color: #991b1b;
+}
+
 .spinner {
     width: 20px;
     height: 20px;

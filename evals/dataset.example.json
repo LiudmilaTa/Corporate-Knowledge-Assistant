@@ -1,0 +1,14 @@
+[
+  {
+    "id": "replace-with-stable-case-id",
+    "question": "Replace with a realistic question about an indexed document.",
+    "expected_sources": [
+      {
+        "filename": "replace-with-uploaded-filename.pdf",
+        "page": 1
+      }
+    ],
+    "reference_answer": "Write the verified answer supported by the expected source.",
+    "answerable": true
+  }
+]

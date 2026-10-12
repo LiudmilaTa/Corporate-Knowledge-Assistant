@@ -1,0 +1,2005 @@
+{
+  "config": {
+    "k": 5,
+    "max_relevant_distance": 0.6,
+    "generator_model": "mistral",
+    "judge_model": "mistral",
+    "embedding_model": "paraphrase-multilingual-MiniLM-L12-v2",
+    "chunk_size": 1000,
+    "chunk_overlap": 200
+  },
+  "summary": {
+    "precision_at_k": 0.08275862068965519,
+    "recall_at_k": 0.3620689655172414,
+    "f1_at_k": 0.1302681992337165,
+    "mrr": 0.37356321839080464,
+    "ndcg_at_k": 0.3417824087432986,
+    "hit_rate_at_k": 0.41379310344827586,
+    "context_precision": 0.184375,
+    "context_recall": 0.2,
+    "faithfulness": 0.36875,
+    "answer_relevance": 0.515625,
+    "correctness": 0.425,
+    "completeness": 0.23750000000000002
+  },
+  "cases": [
+    {
+      "id": "326-scope-cs",
+      "question": "Co upravuje § 1 zákona č. 326/1999 Sb.?",
+      "answer": " § 1 zákona č. 326/1999 Sb. upravuje obecné ustanovení o správním řízení.",
+      "search_candidates": [
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 175
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 175
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 175
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 175
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 175
+        }
+      ],
+      "retrieved_sources": [
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 175
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 175
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 175
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 175
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 175
+        }
+      ],
+      "metrics": {
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "f1_at_k": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_k": 0.0,
+        "hit_rate_at_k": 0.0,
+        "context_precision": 0.0,
+        "context_recall": 0.0,
+        "faithfulness": 0.0,
+        "answer_relevance": 0.0,
+        "correctness": 0.0,
+        "completeness": 0.0
+      },
+      "judge_rationale": "The retrieved context does not contain any information about § 1 of the law 326/1999 Sb. that upravuje obecné ustanovení o správním řízení as stated in the candidate answer. The context only discusses other sections of the same law and related laws, but none of them match the reference answer."
+    },
+    {
+      "id": "326-scope-ru",
+      "question": "Что регулирует § 1 Закона № 326/1999 Sb.?",
+      "answer": " § 190 of the Law No. 326/1999 Sb. does not contain information about § 1. Insufficient information in the provided documents.",
+      "search_candidates": [
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 175
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 175
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 175
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 171
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 175
+        }
+      ],
+      "retrieved_sources": [
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 175
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 175
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 175
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 171
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 175
+        }
+      ],
+      "metrics": {
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "f1_at_k": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_k": 0.0,
+        "hit_rate_at_k": 0.0,
+        "context_precision": 0.0,
+        "context_recall": 0.0,
+        "faithfulness": 0.0,
+        "answer_relevance": 0.0,
+        "correctness": 0.0,
+        "completeness": 0.0
+      },
+      "judge_rationale": "The provided documents do not contain any information about § 1 of Law No. 326/1999 Sb., which is the focus of the question. The candidate answer correctly states that § 190 does not contain information about § 1, but the answer is not relevant to the question as it is not about § 190."
+    },
+    {
+      "id": "326-scope-en",
+      "question": "What does Section 1 of Act No. 326/1999 Sb. regulate?",
+      "answer": " Insufficient information in the provided documents. The context does not contain information about Section 1 of Act No. 326/1999 Sb.",
+      "search_candidates": [
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 175
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 175
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 175
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 175
+        }
+      ],
+      "retrieved_sources": [
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 175
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 175
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 175
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 175
+        }
+      ],
+      "metrics": {
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "f1_at_k": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_k": 0.0,
+        "hit_rate_at_k": 0.0,
+        "context_precision": 0.0,
+        "context_recall": 0.0,
+        "faithfulness": 0.0,
+        "answer_relevance": 0.0,
+        "correctness": 0.0,
+        "completeness": 0.0
+      },
+      "judge_rationale": "The provided documents do not contain information about Section 1 of Act No. 326/1999 Sb. as required by the question. The candidate answer correctly identifies this, but the answer is not relevant or factual."
+    },
+    {
+      "id": "326-family-reunification-cs",
+      "question": "Kdo může podle § 42a žádat o dlouhodobý pobyt za účelem společného soužití rodiny?",
+      "answer": " A cizinec může podle § 42a žádat o dlouhodobý pobyt za účelem společného soužití rodiny, pokud je manželem cizince s povoleným pobytem na území, nezletilým dítětem cizince s povoleným pobytem na území nebo takovým dítětem manžela cizince s povoleným pobytem na území, nezletilým cizincem, který byl cizinci s povoleným pobytem na území nebo jeho manželu rozhodnutím příslušného orgánu svěřen do náhradní rodinné péče nebo který byl cizincem s povoleným pobytem na území nebo jeho manželem osvojen anebo jehož poručníkem nebo manželem jehož poručníka je cizinec s povoleným pobytem na území, pokud se bude péče o nezletilého cizince vykonávat na území, osamělým cizincem starším 65 let nebo bez ohledu na věk cizincem, který se o sebe nedokáže ze zdravotních důvodů sám postarat, jde-li o sloučení rodiny s rodičem nebo dítětem, nebo cizincem, který žádá o vydání povolení k dlouhodobému pobytu za účelem vědeckého výzkumu nebo za tímto účelem na území pobývá nebo žádá o vydání povolení k dlouhodobému pobytu z důvodu uvedeného v § 42 odst. 3.",
+      "search_candidates": [
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 19
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 18
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 18
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 37
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 18
+        }
+      ],
+      "retrieved_sources": [
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 19
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 18
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 18
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 37
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 18
+        }
+      ],
+      "metrics": {
+        "precision_at_k": 0.2,
+        "recall_at_k": 1.0,
+        "f1_at_k": 0.33333333333333337,
+        "mrr": 0.5,
+        "ndcg_at_k": 0.6309297535714575,
+        "hit_rate_at_k": 1.0,
+        "context_precision": 0.5,
+        "context_recall": 0.5,
+        "faithfulness": 1.0,
+        "answer_relevance": 1.0,
+        "correctness": 1.0,
+        "completeness": 0.8
+      },
+      "judge_rationale": "The candidate answer correctly identifies some of the categories of family members who can apply for long-term residence under § 42a, as stated in the reference answer. However, it does not mention all the categories, such as those under § 42a paragraph 1 letter c, which are not explicitly mentioned in the provided context. The answer is relevant, faithful, and correct, but not completely comprehensive."
+    },
+    {
+      "id": "326-family-reunification-ru",
+      "question": "Кто может подать заявление на долгосрочное пребывание с целью совместного проживания семьи согласно § 42a?",
+      "answer": " Cizinec může podat žádost na dlouhodobé pobytě s cílem společného soužití rodiny podle § 42a, pokud je:\na) manželem cizince s povoleným pobytem na území,\nb) nezletilým dítětem cizince s povoleným pobytem na území nebo takovým dítětem manžela cizince s povoleným pobytem na území,\nc) nezletilým cizincem, který byl cizinci s povoleným pobytem na území nebo jeho manželu rozhodnutím příslušného orgánu svěřen do náhradní rodinné péče nebo který byl cizincem s povoleným pobytem na území nebo jeho manželem osvojen anebo jehož poručníkem nebo manželem jehož poručníka je cizinec s povoleným pobytem na území, pokud se bude péče o nezletilého cizince vykonávat na území,\nd) osamělým cizincem starším 65 let nebo bez ohledu na věk cizincem, který se o sebe nedokáže ze zdravotních důvodů sám postarat, jde-li o sloučení rodiny s rodičem nebo dítětem.",
+      "search_candidates": [
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 18
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 18
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 175
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 41
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 49
+        }
+      ],
+      "retrieved_sources": [
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 18
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 18
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 175
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 41
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 49
+        }
+      ],
+      "metrics": {
+        "precision_at_k": 0.2,
+        "recall_at_k": 1.0,
+        "f1_at_k": 0.33333333333333337,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0,
+        "hit_rate_at_k": 1.0,
+        "context_precision": 0.5,
+        "context_recall": 0.5,
+        "faithfulness": 1.0,
+        "answer_relevance": 1.0,
+        "correctness": 1.0,
+        "completeness": 0.8
+      },
+      "judge_rationale": "The candidate answer accurately summarizes the information from the context about who can apply for long-term residence for the purpose of family cohabitation according to § 42a. However, it does not mention all the categories of family members listed in the context, such as a foreigner who is a ward under foster care or an adopted foreigner. The answer is relevant, factual, and correctly answers the question, but it is not completely comprehensive."
+    },
+    {
+      "id": "326-family-reunification-en",
+      "question": "Who may apply for a long-term residence permit for family reunification under Section 42a?",
+      "answer": " A foreigner may apply for a long-term residence permit for family reunification under Section 42a if they are a spouse or a minor child of a foreigner who has already applied for or is already residing in the Czech Republic, and if they can prove that they have the means to live in the Czech Republic (§ 42d c), or if they are already residing in the Czech Republic on a long-term visa or permission for long-term stay for another purpose. No consent from the child's parents, legal representative, or guardian is required in these cases. However, if the foreigner cannot provide consent due to reasons beyond their control, or if the child is already residing in the Czech Republic on a long-term visa or permission for long-term stay, no consent is required.",
+      "search_candidates": [
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 21
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 62
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 62
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 11
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 154
+        }
+      ],
+      "retrieved_sources": [
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 21
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 62
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 62
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 11
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 154
+        }
+      ],
+      "metrics": {
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "f1_at_k": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_k": 0.0,
+        "hit_rate_at_k": 0.0,
+        "context_precision": 0.5,
+        "context_recall": 0.5,
+        "faithfulness": 1.0,
+        "answer_relevance": 1.0,
+        "correctness": 1.0,
+        "completeness": 0.8
+      },
+      "judge_rationale": "The candidate answer correctly identifies the eligible applicants for a long-term residence permit for family reunification under Section 42a, which matches the reference answer. However, it does not fully cover all the family-member categories listed in the reference answer. The context provided supports the candidate answer, but it does not cover all the details in the reference answer."
+    },
+    {
+      "id": "435-purpose-cs",
+      "question": "Jaký je podle § 1 hlavní cíl státní politiky zaměstnanosti?",
+      "answer": " The main goal of the state employment policy, as stated in § 1, is to achieve full employment and protect against unemployment.",
+      "search_candidates": [
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 1
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 78
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 11
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 28
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 22
+        }
+      ],
+      "retrieved_sources": [
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 1
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 78
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 11
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 28
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 22
+        }
+      ],
+      "metrics": {
+        "precision_at_k": 0.2,
+        "recall_at_k": 1.0,
+        "f1_at_k": 0.33333333333333337,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0,
+        "hit_rate_at_k": 1.0,
+        "context_precision": 0.0,
+        "context_recall": 0.0,
+        "faithfulness": 0.0,
+        "answer_relevance": 0.0,
+        "correctness": 0.0,
+        "completeness": 0.0
+      },
+      "judge_rationale": "The retrieved context does not contain the exact phrase or information needed to construct the candidate answer. The context does not provide any information about the main goal of the state employment policy as stated in § 1 being to achieve full employment and protect against unemployment."
+    },
+    {
+      "id": "435-purpose-ru",
+      "question": "Какова основная цель государственной политики занятости согласно § 1?",
+      "answer": " The main goal of the state employment policy according to § 1 is to achieve full employment and protect against unemployment.",
+      "search_candidates": [
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 1
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 78
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 77
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 8
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 7
+        }
+      ],
+      "retrieved_sources": [
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 1
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 78
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 77
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 8
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 7
+        }
+      ],
+      "metrics": {
+        "precision_at_k": 0.2,
+        "recall_at_k": 1.0,
+        "f1_at_k": 0.33333333333333337,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0,
+        "hit_rate_at_k": 1.0,
+        "context_precision": 0.0,
+        "context_recall": 0.0,
+        "faithfulness": 1.0,
+        "answer_relevance": 1.0,
+        "correctness": 1.0,
+        "completeness": 0.0
+      },
+      "judge_rationale": "The candidate answer is a direct translation of the reference answer, and it is factually correct. However, the context provided does not contain the exact phrase or the information necessary to derive the answer. The context only mentions the goal of achieving full employment and protecting against unemployment in a broader context, but it does not explicitly state it as the main goal according to § 1."
+    },
+    {
+      "id": "435-purpose-en",
+      "question": "What is the main aim of state employment policy under Section 1?",
+      "answer": " Insufficient information in the provided documents. The context does not contain information about the main aim of state employment policy under Section 1.",
+      "search_candidates": [
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 32
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 77
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 31
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 60
+        }
+      ],
+      "retrieved_sources": [
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 32
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 77
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 31
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 60
+        }
+      ],
+      "metrics": {
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "f1_at_k": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_k": 0.0,
+        "hit_rate_at_k": 0.0,
+        "context_precision": 0.0,
+        "context_recall": 0.0,
+        "faithfulness": 0.0,
+        "answer_relevance": 0.0,
+        "correctness": 0.0,
+        "completeness": 0.0
+      },
+      "judge_rationale": "The provided documents do not contain any information about the main aim of state employment policy under Section 1. The candidate answer correctly states that there is insufficient information in the documents, but the reference answer is not supported by the context."
+    },
+    {
+      "id": "435-participants-cs",
+      "question": "Kdo patří mezi účastníky právních vztahů podle § 3 odst. 1 zákona o zaměstnanosti?",
+      "answer": " a) Česká republika, za kterou jedná ministerstvo a Úřad práce,\nb) fyzické osoby, které mají způsobilost být zaměstnancem,\nc) zaměstnavatelé,\nd) krajské pobočky Úřadu práce,\ne) právnické nebo fyzické osoby, pokud mají povolení k příslušné formě zprostředkování zaměstnání (agentury práce).",
+      "search_candidates": [
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 2
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 2
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 10
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 2
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 53
+        }
+      ],
+      "retrieved_sources": [
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 2
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 2
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 10
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 2
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 53
+        }
+      ],
+      "metrics": {
+        "precision_at_k": 0.2,
+        "recall_at_k": 1.0,
+        "f1_at_k": 0.33333333333333337,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0,
+        "hit_rate_at_k": 1.0,
+        "context_precision": 0.5,
+        "context_recall": 0.6,
+        "faithfulness": 0.8,
+        "answer_relevance": 1.0,
+        "correctness": 1.0,
+        "completeness": 0.8
+      },
+      "judge_rationale": "The context provides information about the participants of legal relationships according to the Labor Code, but it does not mention all the participants listed in the reference answer. However, the candidate answer correctly identifies some of the participants mentioned in the context and adds 'agentury práce' (employment agencies) which is also mentioned in the context. The answer is relevant to the question and factually correct."
+    },
+    {
+      "id": "435-participants-en",
+      "question": "Who are the participants in legal relations under Section 3(1) of the Employment Act?",
+      "answer": " The participants in legal relations under Section 3(1) of the Employment Act are:\na) The Czech Republic, represented by the ministry and the Labour Office,\nb) Physical persons who have the ability to be employees,\nc) Employers, which includes a detached branch of a foreign legal entity or foreign physical person authorized to conduct business in the Czech Republic according to special legal regulations,\nd) Temporary employment agencies, with the condition that they have permission to provide employment services.",
+      "search_candidates": [
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 2
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 10
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 46
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 53
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 53
+        }
+      ],
+      "retrieved_sources": [
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 2
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 10
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 46
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 53
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 53
+        }
+      ],
+      "metrics": {
+        "precision_at_k": 0.2,
+        "recall_at_k": 1.0,
+        "f1_at_k": 0.33333333333333337,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0,
+        "hit_rate_at_k": 1.0,
+        "context_precision": 0.5,
+        "context_recall": 0.6,
+        "faithfulness": 0.6,
+        "answer_relevance": 1.0,
+        "correctness": 0.8,
+        "completeness": 0.7
+      },
+      "judge_rationale": "The candidate answer correctly identifies the Czech Republic, employers, and individuals eligible to be employees as participants in legal relations under Section 3(1) of the Employment Act. However, it omits the mention of foreign physical persons authorized to conduct business in the Czech Republic according to special legal regulations, which is a fact supported by the context. The answer is relevant to the question and mostly correct, but not fully complete."
+    },
+    {
+      "id": "500-public-service-cs",
+      "question": "Jaké povinnosti vůči dotčeným osobám stanoví § 4 správního řádu?",
+      "answer": " § 4 správního řádu stanoví, že každý, kdo plní úkoly vyplývající z působnosti správního orgánu, má povinnost se k dotčeným osobám chovat zdvořile a podle možností jim vycházet vstříc. Správní orgán v souvislosti se svým úkonem musí poskytnout dotčené osobě přiměřené poučení o jejich právech a povinnostech, je-li to vzhledem k povaze úkonu a osobním poměrům dotčené osoby potřebné. Správní orgán s dostatečným předstihem uvědomí dotčené osobě o úkonu, který učiní, je-li to potřebné k hájení jejich práv a neohrozí-li to účel úkonu. Správní orgán umožní dotčeným osobám uplatňovat jejich práva a oprávněné zájmy.",
+      "search_candidates": [
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 2
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 11
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 14
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 16
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 16
+        }
+      ],
+      "retrieved_sources": [
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 2
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 11
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 14
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 16
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 16
+        }
+      ],
+      "metrics": {
+        "precision_at_k": 0.2,
+        "recall_at_k": 1.0,
+        "f1_at_k": 0.33333333333333337,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0,
+        "hit_rate_at_k": 1.0,
+        "context_precision": 1.0,
+        "context_recall": 1.0,
+        "faithfulness": 1.0,
+        "answer_relevance": 1.0,
+        "correctness": 1.0,
+        "completeness": 1.0
+      },
+      "judge_rationale": "The candidate answer is a concise and accurate summary of the relevant facts from the provided context. It directly answers the question and is factually correct. The context precision and recall are 1.0 because all the relevant information is present in the retrieved context. The faithfulness, answer relevance, correctness, and completeness are also 1.0 as the candidate answer accurately reflects the facts from the context and directly answers the question."
+    },
+    {
+      "id": "500-public-service-ru",
+      "question": "Какие обязанности перед затрагиваемыми лицами устанавливает § 4 Административного кодекса?",
+      "answer": " § 4 of the Administrative Code establishes the following obligations towards affected parties:\n(1) Every person performing tasks arising from the authority of an administrative organ must behave courteously and, to the extent possible, act in a manner that is favorable to the affected parties.\n(2) An administrative organ, in relation to its action, shall provide the affected party with appropriate information about their rights and duties, if necessary due to the nature of the action and personal circumstances of the affected party.\n(3) An administrative organ shall inform the affected party about the action it will take, if necessary for the protection of their rights, unless this would jeopardize the purpose of the action.\n(4) An administrative organ shall allow affected parties to exercise their rights and legitimate interests.",
+      "search_candidates": [
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 2
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 55
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 1
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 41
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 9
+        }
+      ],
+      "retrieved_sources": [
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 2
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 55
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 1
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 41
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 9
+        }
+      ],
+      "metrics": {
+        "precision_at_k": 0.2,
+        "recall_at_k": 1.0,
+        "f1_at_k": 0.33333333333333337,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0,
+        "hit_rate_at_k": 1.0,
+        "context_precision": 0.6,
+        "context_recall": 1.0,
+        "faithfulness": 0.8,
+        "answer_relevance": 1.0,
+        "correctness": 1.0,
+        "completeness": 0.8
+      },
+      "judge_rationale": "The retrieved context provides all the necessary information to answer the question, but the candidate answer is not an exact copy of the reference answer. The candidate answer is a paraphrased version of the facts found in the context, which is why faithfulness and completeness scores are slightly lower than context_recall and answer_relevance."
+    },
+    {
+      "id": "500-public-service-en",
+      "question": "What duties toward affected persons are set out in Section 4 of the Administrative Procedure Code?",
+      "answer": " Správní orgán má povinnost se k dotčeným osobám chovat zdvořile a podle možností jim vycházet vstříc (§ 4 odst. 1). Správní orgán v souvislosti se svým úkonem poskytne dotčené osobě přiměřené poučení o jejich právech a povinnostech, je-li to vzhledem k povaze úkonu a osobním poměrům dotčené osoby potřebné (§ 4 odst. 2). Správní orgán s dostatečným předstihem uvědomí dotčené osobě o úkonu, který učiní, je-li to potřebné k hájení jejich práv a neohrozí-li to účel úkonu (§ 4 odst. 3). Správní orgán umožní dotčeným osobám uplatňovat jejich práva a oprávněné zájmy (§ 4 odst. 4).",
+      "search_candidates": [
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 22
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 43
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 2
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 53
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 10
+        }
+      ],
+      "retrieved_sources": [
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 22
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 43
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 2
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 53
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 10
+        }
+      ],
+      "metrics": {
+        "precision_at_k": 0.2,
+        "recall_at_k": 1.0,
+        "f1_at_k": 0.33333333333333337,
+        "mrr": 0.3333333333333333,
+        "ndcg_at_k": 0.5,
+        "hit_rate_at_k": 1.0,
+        "context_precision": 0.3,
+        "context_recall": 0.5,
+        "faithfulness": 0.8,
+        "answer_relevance": 1.0,
+        "correctness": 1.0,
+        "completeness": 0.6
+      },
+      "judge_rationale": "The candidate answer correctly summarizes the duties of the administrative authority towards affected persons as stated in Section 4 of the Administrative Procedure Code. However, the context only provides partial support for the answer, as it only includes the first three duties out of the four mentioned in the candidate answer. The context does not provide information about the fourth duty, which is allowing affected persons to exercise their rights and legitimate interests. The answer is relevant to the question and factually correct based on the provided context."
+    },
+    {
+      "id": "500-processing-cs",
+      "question": "Jak má správní orgán postupovat podle § 6 správního řádu při vyřizování věcí?",
+      "answer": " Správní orgán postupuje podle § 64 při vyřizování věcí, pokud předběžné otázce byly předloženy před správním orgánem nebo jiným příslušným orgánem veřejné moci, nebo pokud správní orgán podnět podle odstavce 1 písm. a) či učinil výzvu podle odstavce 1 písm. b).",
+      "search_candidates": [
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 19
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 21
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 16
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 20
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 19
+        }
+      ],
+      "retrieved_sources": [
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 19
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 21
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 16
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 20
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 19
+        }
+      ],
+      "metrics": {
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "f1_at_k": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_k": 0.0,
+        "hit_rate_at_k": 0.0,
+        "context_precision": 0.5,
+        "context_recall": 0.2,
+        "faithfulness": 0.5,
+        "answer_relevance": 1.0,
+        "correctness": 0.5,
+        "completeness": 0.2
+      },
+      "judge_rationale": "The candidate answer is partially supported by the retrieved context, but it does not fully capture the essence of the reference answer which emphasizes minimizing unnecessary delays, costs, and burden on involved parties. The candidate answer only mentions the sections that the organs should follow, but not the principles they should adhere to."
+    },
+    {
+      "id": "500-processing-ru",
+      "question": "Как административный орган должен рассматривать дела согласно § 6 Административного кодекса?",
+      "answer": " Administrativní orgán vyřizuje věci bez zbytečných průtahů (§ 6, odst. 1). Postupuje tak, aby nikomu nevznikaly zbytečné náklady a dotčené osoby co možná nejméně zatěžoval (§ 6, odst. 2).",
+      "search_candidates": [
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 2
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 19
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 20
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 22
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 41
+        }
+      ],
+      "retrieved_sources": [
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 2
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 19
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 20
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 22
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 41
+        }
+      ],
+      "metrics": {
+        "precision_at_k": 0.2,
+        "recall_at_k": 1.0,
+        "f1_at_k": 0.33333333333333337,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0,
+        "hit_rate_at_k": 1.0,
+        "context_precision": 0.5,
+        "context_recall": 0.5,
+        "faithfulness": 0.8,
+        "answer_relevance": 1.0,
+        "correctness": 0.8,
+        "completeness": 0.6
+      },
+      "judge_rationale": "The retrieved context provides some relevant information about how an administrative organ should handle cases (§ 6), but it does not fully cover the aspect of avoiding unnecessary delays and minimizing costs for the involved parties, which are key points in the reference answer. The candidate answer is faithful to the context, but it lacks the completeness of the reference answer, which also mentions the aspect of not burdening the involved parties excessively."
+    },
+    {
+      "id": "500-processing-en",
+      "question": "How should an administrative authority handle matters under Section 6 of the Administrative Procedure Code?",
+      "answer": " Insufficient information in the provided documents. Section 6 of the Administrative Procedure Code is not mentioned in the context provided.",
+      "search_candidates": [
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 55
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 19
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 54
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 43
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 40
+        }
+      ],
+      "retrieved_sources": [
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 55
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 19
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 54
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 43
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 40
+        }
+      ],
+      "metrics": {
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "f1_at_k": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_k": 0.0,
+        "hit_rate_at_k": 0.0,
+        "context_precision": 0.0,
+        "context_recall": 0.0,
+        "faithfulness": 0.0,
+        "answer_relevance": 0.0,
+        "correctness": 0.0,
+        "completeness": 0.0
+      },
+      "judge_rationale": "The provided context does not contain any information about how an administrative authority should handle matters under Section 6 of the Administrative Procedure Code. The candidate answer correctly states that the information is not present in the context, but the reference answer provides additional details that are not supported by the context."
+    },
+    {
+      "id": "absent-statistics-cs",
+      "question": "Kolik cizinců žilo v Praze v roce 2025?",
+      "answer": " Insufficient information in the provided documents. The context does not contain information about the number of foreigners living in Prague in 2025.",
+      "search_candidates": [
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 55
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 95
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 55
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 55
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 55
+        }
+      ],
+      "retrieved_sources": [
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 55
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 95
+        }
+      ],
+      "metrics": {
+        "precision_at_k": null,
+        "recall_at_k": null,
+        "f1_at_k": null,
+        "mrr": null,
+        "ndcg_at_k": null,
+        "hit_rate_at_k": null,
+        "context_precision": 0.0,
+        "context_recall": 0.0,
+        "faithfulness": 1.0,
+        "answer_relevance": 1.0,
+        "correctness": 1.0,
+        "completeness": 0.0
+      },
+      "judge_rationale": "The candidate answer correctly states that the provided documents do not contain information about the number of foreigners living in Prague in 2025, which aligns with the reference answer. However, the context precision, recall, and completeness are low because the documents do not provide any relevant information for this question."
+    },
+    {
+      "id": "absent-statistics-ru",
+      "question": "Сколько иностранцев проживало в Праге в 2025 году?",
+      "answer": " Insufficient information in the provided documents. The documents do not contain information about the number of foreigners living in Prague in 2025.",
+      "search_candidates": [
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        }
+      ],
+      "retrieved_sources": [
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        }
+      ],
+      "metrics": {
+        "precision_at_k": null,
+        "recall_at_k": null,
+        "f1_at_k": null,
+        "mrr": null,
+        "ndcg_at_k": null,
+        "hit_rate_at_k": null,
+        "context_precision": 0.0,
+        "context_recall": 0.0,
+        "faithfulness": 1.0,
+        "answer_relevance": 1.0,
+        "correctness": 1.0,
+        "completeness": 0.0
+      },
+      "judge_rationale": "The candidate answer correctly acknowledges that the provided documents do not contain the requested information. However, the context does not provide any information about the number of foreigners living in Prague in 2025, hence the low context_recall and completeness scores."
+    },
+    {
+      "id": "absent-statistics-en",
+      "question": "How many foreign nationals lived in Prague in 2025?",
+      "answer": " Insufficient information in the provided documents.",
+      "search_candidates": [
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        }
+      ],
+      "retrieved_sources": [
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        }
+      ],
+      "metrics": {
+        "precision_at_k": null,
+        "recall_at_k": null,
+        "f1_at_k": null,
+        "mrr": null,
+        "ndcg_at_k": null,
+        "hit_rate_at_k": null,
+        "context_precision": 0.0,
+        "context_recall": 0.0,
+        "faithfulness": 0.0,
+        "answer_relevance": 1.0,
+        "correctness": 1.0,
+        "completeness": 0.0
+      },
+      "judge_rationale": "The provided documents do not contain any information about the number of foreign nationals living in Prague in 2025. The candidate answer correctly acknowledges this fact, and the reference answer agrees with the candidate answer."
+    },
+    {
+      "id": "student-visa-time-cs",
+      "question": "Když si požádám o dlouhodobé vízum kvůli studiu, jak dlouho se na rozhodnutí čeká?",
+      "answer": " Insufficient information in the provided documents. The context does not specify the duration of waiting for a decision on a long-term visa for study purposes.",
+      "search_candidates": [
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 21
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 17
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 24
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 21
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 27
+        }
+      ],
+      "retrieved_sources": [
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 21
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 17
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 24
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 21
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 27
+        }
+      ],
+      "metrics": {
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "f1_at_k": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_k": 0.0,
+        "hit_rate_at_k": 0.0,
+        "context_precision": 0.0,
+        "context_recall": 0.0,
+        "faithfulness": 0.0,
+        "answer_relevance": 0.0,
+        "correctness": 0.0,
+        "completeness": 0.0
+      },
+      "judge_rationale": "The provided context does not contain any information about the duration of waiting for a decision on a long-term visa for study purposes. The candidate answer is a fabricated substantive answer as it is not supported by the context."
+    },
+    {
+      "id": "student-visa-time-ru",
+      "question": "Если подать на долгосрочную визу для учёбы в Чехии, сколько обычно ждать решения?",
+      "answer": " Insufficient information in the provided documents. There is no information about the processing time for long-term visas for studying in the Czech Republic.",
+      "search_candidates": [
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 175
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        }
+      ],
+      "retrieved_sources": [
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 175
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        }
+      ],
+      "metrics": {
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "f1_at_k": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_k": 0.0,
+        "hit_rate_at_k": 0.0,
+        "context_precision": 0.0,
+        "context_recall": 0.0,
+        "faithfulness": 0.0,
+        "answer_relevance": 0.0,
+        "correctness": 0.0,
+        "completeness": 0.0
+      },
+      "judge_rationale": "The provided documents do not contain any information about the processing time for long-term visas for studying in the Czech Republic. The candidate's answer is a fabricated substantive answer as it contradicts the fact that no such information is present in the context."
+    },
+    {
+      "id": "student-visa-time-en",
+      "question": "If I apply for a Czech long-stay visa to study, how long can the decision take?",
+      "answer": " Insufficient information in the provided documents. The context does not specify a timeframe for the decision on a long-stay visa for study purposes.",
+      "search_candidates": [
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 53
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 171
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 56
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 56
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 161
+        }
+      ],
+      "retrieved_sources": [
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 171
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 56
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 56
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 161
+        }
+      ],
+      "metrics": {
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "f1_at_k": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_k": 0.0,
+        "hit_rate_at_k": 0.0,
+        "context_precision": 0.0,
+        "context_recall": 0.0,
+        "faithfulness": 0.0,
+        "answer_relevance": 0.5,
+        "correctness": 0.0,
+        "completeness": 0.0
+      },
+      "judge_rationale": "The retrieved context does not contain specific information about the decision time for a long-stay visa for study purposes. The candidate answer correctly states that the information is insufficient, but the reference answer provides a specific timeframe (up to 60 days) that is not mentioned in the context."
+    },
+    {
+      "id": "employee-card-time-cs",
+      "question": "A když žádám o zaměstnaneckou kartu kvůli práci, jak dlouho na ni můžu čekat?",
+      "answer": " Insufficient information in the provided documents. The context does not specify the waiting time for a work permit (zaměstnanecká karta).",
+      "search_candidates": [
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 168
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        }
+      ],
+      "retrieved_sources": [
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 168
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        }
+      ],
+      "metrics": {
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "f1_at_k": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_k": 0.0,
+        "hit_rate_at_k": 0.0,
+        "context_precision": 0.0,
+        "context_recall": 0.0,
+        "faithfulness": 0.0,
+        "answer_relevance": 0.0,
+        "correctness": 0.0,
+        "completeness": 0.0
+      },
+      "judge_rationale": "The retrieved context does not contain information about the waiting time for a work permit (zaměstnanecká karta). The candidate answer correctly states that the information is not available in the provided documents, but it fails to provide a relevant, factual, and complete answer to the question."
+    },
+    {
+      "id": "employee-card-time-ru",
+      "question": "А если подаю на рабочую карту (zaměstnanecká karta), сколько ждать?",
+      "answer": " Nejméně 6 měsíců, podle § 44.",
+      "search_candidates": [
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 57
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 36
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 37
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 59
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 24
+        }
+      ],
+      "retrieved_sources": [
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 57
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 36
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 37
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 59
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 24
+        }
+      ],
+      "metrics": {
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "f1_at_k": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_k": 0.0,
+        "hit_rate_at_k": 0.0,
+        "context_precision": 0.5,
+        "context_recall": 0.5,
+        "faithfulness": 0.5,
+        "answer_relevance": 1.0,
+        "correctness": 0.5,
+        "completeness": 0.5
+      },
+      "judge_rationale": "The retrieved context provides information about the duration of a work permit card (zaměstnanecká karta) and the duration of a blue card, but not the waiting time for a work permit card. The candidate answer is partially supported by the context, but it is incomplete and does not match the exact waiting time mentioned in the reference answer."
+    },
+    {
+      "id": "employee-card-time-en",
+      "question": "If I apply for an employee card for a job in Czechia, how long might it take?",
+      "answer": " Insufficient information in the provided documents. The context does not contain information about the processing time for an employee card application.",
+      "search_candidates": [
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 140
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 166
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        }
+      ],
+      "retrieved_sources": [
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 140
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 166
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        }
+      ],
+      "metrics": {
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "f1_at_k": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_k": 0.0,
+        "hit_rate_at_k": 0.0,
+        "context_precision": 0.0,
+        "context_recall": 0.0,
+        "faithfulness": 0.0,
+        "answer_relevance": 0.0,
+        "correctness": 0.0,
+        "completeness": 0.0
+      },
+      "judge_rationale": "The retrieved context does not contain any information about the processing time for an employee card application, and the candidate answer correctly states that there is insufficient information in the provided documents. However, the candidate answer does not directly answer the question, and the reference answer provides additional information about the decision period and complex cases, which is not present in the context."
+    },
+    {
+      "id": "job-loss-employee-card-cs",
+      "question": "Když přijdu o práci a mám zaměstnaneckou kartu, kolik mám času najít si novou, než bude problém s pobytem?",
+      "answer": " Insufficient information in the provided documents. The context does not specify a time limit for finding new employment after losing a job, regarding the impact on residence permit.",
+      "search_candidates": [
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 21
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 11
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 5
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 5
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 18
+        }
+      ],
+      "retrieved_sources": [
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 21
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 11
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 5
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 5
+        }
+      ],
+      "metrics": {
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "f1_at_k": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_k": 0.0,
+        "hit_rate_at_k": 0.0,
+        "context_precision": 0.0,
+        "context_recall": 0.0,
+        "faithfulness": 0.0,
+        "answer_relevance": 0.0,
+        "correctness": 0.0,
+        "completeness": 0.0
+      },
+      "judge_rationale": "The provided documents do not contain information about the time limit for finding new employment after losing a job, regarding the impact on residence permit. The candidate's answer is not supported by the context and does not match the reference answer."
+    },
+    {
+      "id": "job-loss-employee-card-ru",
+      "question": "Если меня уволили, а у меня рабочая карта, сколько есть времени найти новую работу, чтобы не было проблем с пребыванием?",
+      "answer": "No documents indexed yet. Upload a PDF first.",
+      "search_candidates": [],
+      "retrieved_sources": [],
+      "metrics": {
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "f1_at_k": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_k": 0.0,
+        "hit_rate_at_k": 0.0,
+        "context_precision": 0.0,
+        "context_recall": 0.0,
+        "faithfulness": 0.0,
+        "answer_relevance": 0.0,
+        "correctness": 0.0,
+        "completeness": 0.0
+      },
+      "judge_rationale": "The retrieved context does not contain any information relevant to the question about the time period for finding a new job after being fired, given a work permit. The candidate answer is a system-generated message about the lack of indexed documents, which does not address the question."
+    },
+    {
+      "id": "job-loss-employee-card-en",
+      "question": "I lost my job and have a Czech employee card. How long do I have to find another job before my residence status is affected?",
+      "answer": " Insufficient information in the provided documents. The context does not contain information about the time limit for finding another job after losing a job for a person with a Czech employee card.",
+      "search_candidates": [
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        }
+      ],
+      "retrieved_sources": [
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        }
+      ],
+      "metrics": {
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "f1_at_k": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_k": 0.0,
+        "hit_rate_at_k": 0.0,
+        "context_precision": 0.0,
+        "context_recall": 0.0,
+        "faithfulness": 0.0,
+        "answer_relevance": 0.0,
+        "correctness": 0.0,
+        "completeness": 0.0
+      },
+      "judge_rationale": "The retrieved context does not contain any information relevant to the question about the time limit for finding another job after losing a job for a person with a Czech employee card. The candidate answer correctly states that the context does not provide sufficient information, but the answer itself is not relevant or factually supported by the context."
+    },
+    {
+      "id": "supplement-documents-cs",
+      "question": "Úřad si ode mě vyžádal další dokumenty a já už je poslal. Za jak dlouho teď musí rozhodnout?",
+      "answer": " Insufficient information in the provided documents. The context does not specify a time frame for the decision after the additional documents have been sent.",
+      "search_candidates": [
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 36
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 62
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 31
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 53
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 53
+        }
+      ],
+      "retrieved_sources": [
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 36
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 62
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 31
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 53
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 53
+        }
+      ],
+      "metrics": {
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "f1_at_k": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_k": 0.0,
+        "hit_rate_at_k": 0.0,
+        "context_precision": 0.0,
+        "context_recall": 0.0,
+        "faithfulness": 0.0,
+        "answer_relevance": 0.0,
+        "correctness": 0.0,
+        "completeness": 0.0
+      },
+      "judge_rationale": "The candidate answer does not provide any factual information from the context about the time frame for the decision after sending additional documents. The reference answer, on the other hand, provides detailed information about the time frames for various types of applications, including those related to long-term visas and employment permits. The candidate answer does not align with the facts provided in the context, and it does not answer the question directly."
+    },
+    {
+      "id": "supplement-documents-ru",
+      "question": "Ведомство попросило донести документы, я уже всё отправила. Сколько теперь ждать решения?",
+      "answer": " Insufficient information in the provided documents. The context does not specify a timeframe for a decision after documents have been sent to a government agency.",
+      "search_candidates": [
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 151
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 8
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 62
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 84
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 8
+        }
+      ],
+      "retrieved_sources": [
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 151
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 8
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 62
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 84
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 8
+        }
+      ],
+      "metrics": {
+        "precision_at_k": 0.2,
+        "recall_at_k": 0.25,
+        "f1_at_k": 0.22222222222222224,
+        "mrr": 1.0,
+        "ndcg_at_k": 0.3903800499921017,
+        "hit_rate_at_k": 1.0,
+        "context_precision": 0.0,
+        "context_recall": 0.0,
+        "faithfulness": 0.0,
+        "answer_relevance": 0.5,
+        "correctness": 0.0,
+        "completeness": 0.0
+      },
+      "judge_rationale": "The candidate answer does not provide a specific timeframe for a decision after documents have been sent to a government agency, which contradicts the reference answer that specifies various timeframes depending on the type of application and whether the proceedings have been officially suspended. The context does not contain information about the type of application or the official suspension of proceedings, making it impossible to determine the correctness and completeness of the candidate answer."
+    },
+    {
+      "id": "supplement-documents-en",
+      "question": "The office asked me to send some missing documents, and I have sent them. How long do I have to wait for a decision now?",
+      "answer": " Insufficient information in the provided documents. The context does not specify a time limit for a decision after sending the missing documents.",
+      "search_candidates": [
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 151
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 8
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 8
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 62
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 156
+        }
+      ],
+      "retrieved_sources": [
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 151
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 8
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 8
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 62
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 156
+        }
+      ],
+      "metrics": {
+        "precision_at_k": 0.2,
+        "recall_at_k": 0.25,
+        "f1_at_k": 0.22222222222222224,
+        "mrr": 1.0,
+        "ndcg_at_k": 0.3903800499921017,
+        "hit_rate_at_k": 1.0,
+        "context_precision": 0.0,
+        "context_recall": 0.0,
+        "faithfulness": 0.0,
+        "answer_relevance": 0.5,
+        "correctness": 0.0,
+        "completeness": 0.0
+      },
+      "judge_rationale": "The candidate answer does not provide a specific time limit for a decision after sending missing documents, which contradicts the reference answer. The context does not contain information about time limits for decisions after sending missing documents."
+    }
+  ]
+}
