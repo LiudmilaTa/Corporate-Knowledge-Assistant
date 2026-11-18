@@ -10,6 +10,7 @@ This document describes the repository layout and the responsibility of each imp
 |   |-- api/                 HTTP routes and request handling
 |   |-- core/                Cross-cutting application concerns
 |   |-- db/                  SQLAlchemy base and session management
+|   |-- mcp/                 Local, read-only MCP server and knowledge tools
 |   |-- models/              ORM models and Pydantic schemas
 |   |-- services/            Ingestion, retrieval, embeddings, and LLM logic
 |   |-- static/               CSS and browser-side JavaScript
@@ -20,12 +21,15 @@ This document describes the repository layout and the responsibility of each imp
 |   |-- versions/             Versioned database migrations
 |   `-- env.py                Alembic runtime configuration
 |-- docs/
+|   |-- ai-context/          Persistent project context for AI coding assistants
 |   |-- images/               Documentation and interface screenshots
 |   |-- PROJECT_DETAILS.md    Architecture and implementation notes
 |   `-- PROJECT_STRUCTURE.md  This repository map
 |-- tests/                    Unit, integration, and API regression tests
 |-- uploads/                  Local directory for uploaded PDF files
 |-- docker-compose.yml        Local PostgreSQL and pgvector service
+|-- .github/                  Copilot instructions and reusable Skills
+|-- .vscode/mcp.json          Workspace MCP server configuration
 |-- pyproject.toml            Dependencies and project tooling
 |-- ruff.toml                 Ruff linting configuration
 |-- alembic.ini               Database migration configuration
@@ -57,6 +61,14 @@ Contains the domain workflow:
 - `rag.py` coordinates retrieval and context assembly.
 - `llm.py` communicates with the local Ollama endpoint.
 - `ingestion.py` orchestrates document processing from upload to storage.
+
+### `app/mcp/`
+
+Provides the local stdio MCP server and read-only tools for knowledge search, grounded answers, and document listing. Tool logic delegates to existing RAG services.
+
+### AI coding context
+
+`docs/ai-context/` contains the repository memory bank. `.github/skills/` provide guidance and task-specific Skills for coding assistants. This development context is separate from application chat history.
 
 ### `app/models/` and `app/db/`
 

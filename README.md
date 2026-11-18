@@ -8,6 +8,7 @@ The core MVP is implemented and works locally with PostgreSQL, pgvector, and Oll
 
 For the architecture, models, project status, tests, roadmap, and implementation notes, see [Project details](docs/PROJECT_DETAILS.md). The repository map is available in [Project structure](docs/PROJECT_STRUCTURE.md).
 The local RAG evaluation methodology, results, and improvement plan are documented in [RAG evaluation](docs/RAG_EVALUATION.md).
+The local read-only MCP server and AI coding context are described in [Project details](docs/PROJECT_DETAILS.md#mcp-and-ai-development-context).
 
 ## Installation
 
@@ -63,6 +64,16 @@ uv run uvicorn app.main:app --reload
 ```
 
 5. Open the app at `http://localhost:8000`.
+
+## MCP integration
+
+The repository includes a local, read-only MCP server for indexed knowledge. Configure the project in VS Code, start PostgreSQL, apply migrations, and ensure the embedding model and Ollama are available before using search and answer tools. The MCP server can be started directly with:
+
+```powershell
+uv run python -m app.mcp.server
+```
+
+VS Code's workspace MCP configuration is in `.vscode/mcp.json`. The server exposes `search_knowledge`, `ask_knowledge`, and `list_documents` over stdio; it does not expose upload or delete operations. See [MCP and AI development context](docs/PROJECT_DETAILS.md#mcp-and-ai-development-context) for setup and limitations.
 
 ## License
 

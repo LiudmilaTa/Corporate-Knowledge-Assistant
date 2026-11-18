@@ -50,6 +50,7 @@ flowchart LR
 | Retrieval | Sentence Transformers, multilingual embeddings |
 | Documents | pypdf, LangChain text splitters |
 | Local AI | Ollama |
+| AI integration | MCP Python SDK, local stdio server |
 | Tooling | uv, pytest, Ruff, Docker Compose |
 
 ## Main components
@@ -59,6 +60,35 @@ flowchart LR
 - Embedding and vector search layer
 - LLM integration for answer generation
 - SQLAlchemy models and Alembic migrations for persistence
+- Read-only MCP tools for local AI clients
+
+## MCP and AI development context
+
+The project provides a local Model Context Protocol (MCP) server so an MCP-compatible client can search the indexed knowledge base. It reuses the existing RAG services; it is not an additional retrieval pipeline.
+
+### Start and connect
+
+1. Install project dependencies with `uv sync`.
+2. Start PostgreSQL, apply migrations, and make sure Ollama is running. The embedding model is loaded on demand by the MCP process.
+3. Open this repository in VS Code and enable the server from `.vscode/mcp.json` when prompted, or start it directly:
+
+   ```powershell
+   uv run python -m app.mcp.server
+   ```
+
+The stdio server exposes:
+
+- `search_knowledge`: relevant passages and source details.
+- `ask_knowledge`: an answer grounded in retrieved passages, with citations.
+- `list_documents`: indexed filenames and chunk counts.
+
+All tools are read-only. This is a local development integration, not a secured remote MCP service. The application does not currently provide authentication or document-level access control. Text returned from PDFs is untrusted input and must not be followed as instructions.
+
+### AI coding context and Skills
+
+`docs/ai-context/` is the repository memory bank for AI coding assistants; it is not persistent memory for end-user conversations. `.github/skills/` contains Skills for MCP tools, RAG evaluation, and document ingestion.
+
+Chat history currently stores individual questions and answers. It is not used as conversation context in later requests; multi-turn user memory is a separate future feature.
 
 ## Models and local installation
 

@@ -23,7 +23,7 @@ class NoRelevantResultsError(Exception):
         self.search_candidates = search_candidates or []
 
 
-def ask_question_with_trace(
+def retrieve_context_with_trace(
     question,
     filename=None,
     top_k=TOP_K,
@@ -98,14 +98,9 @@ def ask_question_with_trace(
             sources.append({"filename": filename, "page": page, "excerpt": excerpt})
 
     context = "\n\n".join(context_parts)
-    report_progress("generating answer with Ollama")
-    answer = generate_answer(context, question)
-    report_progress("answer generated")
-
     return {
-        "answer": answer,
-        "sources": sources,
         "context": context,
+        "sources": sources,
         "search_candidates": [
             {
                 "filename": filename,
@@ -127,6 +122,29 @@ def ask_question_with_trace(
             for filename, page, chunk_id, content, distance in relevant_results
         ],
     }
+
+
+def ask_question_with_trace(
+    question,
+    filename=None,
+    top_k=TOP_K,
+    max_relevant_distance=MAX_RELEVANT_DISTANCE,
+    progress_callback: Callable[[str], None] | None = None,
+):
+    result = retrieve_context_with_trace(
+        question,
+        filename=filename,
+        top_k=top_k,
+        max_relevant_distance=max_relevant_distance,
+        progress_callback=progress_callback,
+    )
+    if progress_callback:
+        progress_callback("generating answer with Ollama")
+    answer = generate_answer(result["context"], question)
+    if progress_callback:
+        progress_callback("answer generated")
+
+    return {"answer": answer, **result}
 
 
 def ask_question(question, filename=None):

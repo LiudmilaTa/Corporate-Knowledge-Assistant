@@ -1,0 +1,16 @@
+{
+  "servers": {
+    "corporate-knowledge-assistant": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "--directory",
+        "${workspaceFolder}",
+        "python",
+        "-m",
+        "app.mcp.server"
+      ]
+    }
+  }
+}

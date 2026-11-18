@@ -54,6 +54,26 @@ def test_ask_question_returns_answer_for_relevant_results(monkeypatch):
     ]
 
 
+def test_retrieve_context_returns_relevant_chunks_without_generating_answer(monkeypatch):
+    monkeypatch.setattr(rag, "create_embedding", lambda question: [0.1, 0.2])
+    monkeypatch.setattr(
+        rag,
+        "search_documents",
+        lambda query_embedding, limit=5, **kwargs: [
+            ("test.pdf", 1, 0, "relevant content", 0.1),
+        ],
+    )
+    monkeypatch.setattr(
+        rag,
+        "generate_answer",
+        lambda context, question: pytest.fail("Retrieval must not generate an answer"),
+    )
+
+    result = rag.retrieve_context_with_trace("What is this about?")
+
+    assert result["retrieved_chunks"][0]["content"] == "relevant content"
+
+
 def test_ask_question_with_trace_reports_ollama_stages(monkeypatch):
     monkeypatch.setattr(rag, "create_embedding", lambda question: [0.1, 0.2])
     monkeypatch.setattr(

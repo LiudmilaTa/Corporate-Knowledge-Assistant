@@ -11,4 +11,5 @@ htmlcov/
 dist/
 build/
 
-.vscode/
+.vscode/*
+!.vscode/mcp.json
