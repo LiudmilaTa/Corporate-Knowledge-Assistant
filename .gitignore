@@ -13,3 +13,5 @@ build/
 
 .vscode/*
 !.vscode/mcp.json
+
+.github/copilot-instructions.md
