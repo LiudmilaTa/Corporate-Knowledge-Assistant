@@ -6,13 +6,26 @@
 #document-filter {
     width: 100%;
     min-width: 0;
+    height: 48px;
     padding: 0 40px 0 14px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    background: white;
+    border: 1px solid #d1d5db;
+    border-radius: 12px;
+    background: #fff;
     color: #374151;
-    font-size: 15px;
+    font: inherit;
+    cursor: pointer;
     box-sizing: border-box;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+#document-filter:hover {
+    border-color: #9ca3af;
+}
+
+#document-filter:focus-visible {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
 }
 
 .document-filter-wrap {
