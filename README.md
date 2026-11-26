@@ -45,7 +45,7 @@ uv sync
 
 ```env
 POSTGRES_HOST=localhost
-POSTGRES_PORT=5433
+POSTGRES_PORT=5434
 POSTGRES_DB=rag_db
 POSTGRES_USER=rag_user
 POSTGRES_PASSWORD=rag_password

@@ -1,5 +1,6 @@
 import json
 import math
+import time
 from pathlib import Path
 from statistics import fmean
 from typing import Any, Callable
@@ -263,6 +264,8 @@ def run_evaluation(
     k: int = 5,
     max_relevant_distance: float = 0.6,
     judge_model: str | None = None,
+    use_query_rewriting: bool = True,
+    retrieval_only: bool = False,
     progress_callback: Callable[[str], None] | None = None,
 ) -> dict[str, Any]:
     from app.services.embeddings import EMBEDDING_MODEL
@@ -270,10 +273,12 @@ def run_evaluation(
         NoDocumentsIndexedError,
         NoRelevantResultsError,
         ask_question_with_trace,
+        retrieve_context_with_trace,
     )
     from app.services.splitter import CHUNK_OVERLAP, CHUNK_SIZE
     _, generator_model, _ = _ollama_settings()
 
+    started_at = time.perf_counter()
     results = []
     for index, case in enumerate(cases, start=1):
         def report_rag_progress(message: str) -> None:
@@ -281,24 +286,32 @@ def run_evaluation(
                 progress_callback(f"[{index}/{len(cases)}] {case.id}: {message}")
 
         if progress_callback:
-            report_rag_progress("starting RAG pipeline")
+            report_rag_progress(
+                "starting retrieval pipeline" if retrieval_only else "starting RAG pipeline"
+            )
         trace = None
         search_candidates = []
         try:
-            trace = ask_question_with_trace(
+            retrieve = retrieve_context_with_trace if retrieval_only else ask_question_with_trace
+            trace = retrieve(
                 case.question,
                 filename=case.filename,
                 top_k=k,
                 max_relevant_distance=max_relevant_distance,
+                use_query_rewriting=use_query_rewriting,
                 progress_callback=report_rag_progress,
             )
-            answer = trace["answer"]
+            answer = trace.get("answer")
             chunks = trace["retrieved_chunks"]
         except NoDocumentsIndexedError:
-            answer = "No documents indexed yet. Upload a PDF first."
+            answer = None if retrieval_only else "No documents indexed yet. Upload a PDF first."
             chunks = []
         except NoRelevantResultsError as exc:
-            answer = "No relevant information found in the indexed documents."
+            answer = (
+                None
+                if retrieval_only
+                else "No relevant information found in the indexed documents."
+            )
             chunks = []
             search_candidates = [
                 {
@@ -319,21 +332,29 @@ def run_evaluation(
         ranking = retrieval_metrics(
             _source_keys(search_candidates), expected_sources, k
         )
-        if progress_callback:
-            progress_callback(
-                f"[{index}/{len(cases)}] {case.id}: evaluating answer with judge"
+        if retrieval_only:
+            judged_metrics = dict.fromkeys(JUDGE_SCORE_FIELDS)
+            judge_rationale = None
+        else:
+            if progress_callback:
+                progress_callback(
+                    f"[{index}/{len(cases)}] {case.id}: evaluating answer with judge"
+                )
+            judged = judge_answer(
+                question=case.question,
+                chunks=[chunk["content"] for chunk in chunks],
+                answer=answer,
+                reference_answer=case.reference_answer,
+                answerable=case.answerable,
+                model=judge_model,
             )
-        judged = judge_answer(
-            question=case.question,
-            chunks=[chunk["content"] for chunk in chunks],
-            answer=answer,
-            reference_answer=case.reference_answer,
-            answerable=case.answerable,
-            model=judge_model,
-        )
+            judged_metrics = {
+                field: getattr(judged, field) for field in JUDGE_SCORE_FIELDS
+            }
+            judge_rationale = judged.rationale
         metrics = {
             **ranking,
-            **{field: getattr(judged, field) for field in JUDGE_SCORE_FIELDS},
+            **judged_metrics,
         }
         results.append(
             {
@@ -349,7 +370,7 @@ def run_evaluation(
                     for chunk in chunks
                 ],
                 "metrics": metrics,
-                "judge_rationale": judged.rationale,
+                "judge_rationale": judge_rationale,
             }
         )
         if progress_callback:
@@ -364,6 +385,9 @@ def run_evaluation(
             "embedding_model": EMBEDDING_MODEL,
             "chunk_size": CHUNK_SIZE,
             "chunk_overlap": CHUNK_OVERLAP,
+            "query_rewriting_enabled": use_query_rewriting,
+            "retrieval_only": retrieval_only,
+            "elapsed_seconds": time.perf_counter() - started_at,
         },
         "summary": aggregate_metrics(results),
         "cases": results,

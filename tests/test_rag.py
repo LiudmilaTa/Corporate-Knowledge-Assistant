@@ -74,6 +74,35 @@ def test_retrieve_context_returns_relevant_chunks_without_generating_answer(monk
     assert result["retrieved_chunks"][0]["content"] == "relevant content"
 
 
+def test_retrieve_context_can_skip_query_rewriting(monkeypatch):
+    embedding_calls = []
+    search_calls = []
+    monkeypatch.setattr(
+        rag, "create_embedding", lambda question: embedding_calls.append(question) or [0.1]
+    )
+    monkeypatch.setattr(
+        rag,
+        "search_documents",
+        lambda query_embedding, limit=5, **kwargs: search_calls.append(kwargs)
+        or [("test.pdf", 1, 0, "relevant content", 0.1)],
+    )
+    monkeypatch.setattr(
+        rag,
+        "translate_search_query",
+        lambda *args: pytest.fail("Query rewriting must be skipped"),
+    )
+
+    result = rag.retrieve_context_with_trace(
+        "What is this about?",
+        filename="test.pdf",
+        use_query_rewriting=False,
+    )
+
+    assert embedding_calls == ["What is this about?"]
+    assert len(search_calls) == 1
+    assert result["retrieved_chunks"][0]["content"] == "relevant content"
+
+
 def test_ask_question_with_trace_reports_ollama_stages(monkeypatch):
     monkeypatch.setattr(rag, "create_embedding", lambda question: [0.1, 0.2])
     monkeypatch.setattr(

@@ -306,3 +306,63 @@ def test_run_evaluation_uses_search_candidates_and_judges_final_context(monkeypa
     assert report["cases"][0]["retrieved_sources"] == [
         {"filename": "policy.pdf", "page": 1}
     ]
+
+
+def test_run_evaluation_retrieval_only_skips_generation_and_judging(monkeypatch):
+    from app.services import rag
+
+    trace = {
+        "search_candidates": [
+            {
+                "filename": "policy.pdf",
+                "page": 1,
+                "chunk_id": 0,
+                "content": "Relevant policy text.",
+                "distance": 0.2,
+            }
+        ],
+        "retrieved_chunks": [
+            {
+                "filename": "policy.pdf",
+                "page": 1,
+                "chunk_id": 0,
+                "content": "Relevant policy text.",
+                "distance": 0.2,
+            }
+        ],
+    }
+
+    def fake_retrieve_context(question, **kwargs):
+        assert kwargs["use_query_rewriting"] is False
+        return trace
+
+    monkeypatch.setattr(rag, "retrieve_context_with_trace", fake_retrieve_context)
+    monkeypatch.setattr(
+        rag,
+        "ask_question_with_trace",
+        lambda *args, **kwargs: pytest.fail("Retrieval-only evaluation must not generate"),
+    )
+    monkeypatch.setattr(
+        "app.services.evaluation.judge_answer",
+        lambda **kwargs: pytest.fail("Retrieval-only evaluation must not judge"),
+    )
+    case = EvaluationCase(
+        id="case-1",
+        question="What does the policy allow?",
+        expected_sources=[{"filename": "policy.pdf", "page": 1}],
+        reference_answer="It allows it.",
+    )
+
+    report = run_evaluation(
+        [case],
+        k=1,
+        use_query_rewriting=False,
+        retrieval_only=True,
+    )
+
+    assert report["summary"]["recall_at_k"] == 1
+    assert report["summary"]["faithfulness"] is None
+    assert report["config"]["query_rewriting_enabled"] is False
+    assert report["config"]["retrieval_only"] is True
+    assert report["config"]["elapsed_seconds"] >= 0
+    assert report["cases"][0]["answer"] is None

@@ -28,6 +28,7 @@ def retrieve_context_with_trace(
     filename=None,
     top_k=TOP_K,
     max_relevant_distance=MAX_RELEVANT_DISTANCE,
+    use_query_rewriting=True,
     progress_callback: Callable[[str], None] | None = None,
 ):
     def report_progress(message):
@@ -50,7 +51,7 @@ def retrieve_context_with_trace(
     if not results:
         raise NoDocumentsIndexedError
 
-    if filename:
+    if filename and use_query_rewriting:
         original_results = results
         report_progress("translating question to document language with Ollama")
         translated_question = translate_search_query(question, results[0][3])
@@ -129,6 +130,7 @@ def ask_question_with_trace(
     filename=None,
     top_k=TOP_K,
     max_relevant_distance=MAX_RELEVANT_DISTANCE,
+    use_query_rewriting=True,
     progress_callback: Callable[[str], None] | None = None,
 ):
     result = retrieve_context_with_trace(
@@ -136,6 +138,7 @@ def ask_question_with_trace(
         filename=filename,
         top_k=top_k,
         max_relevant_distance=max_relevant_distance,
+        use_query_rewriting=use_query_rewriting,
         progress_callback=progress_callback,
     )
     if progress_callback:

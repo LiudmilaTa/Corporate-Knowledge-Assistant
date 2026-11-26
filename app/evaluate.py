@@ -35,6 +35,16 @@ def main() -> int:
         default=0.6,
         help="Distance cutoff used by the RAG pipeline",
     )
+    parser.add_argument(
+        "--disable-query-rewriting",
+        action="store_true",
+        help="Skip translating the question into the indexed document's language",
+    )
+    parser.add_argument(
+        "--retrieval-only",
+        action="store_true",
+        help="Measure retrieval without generating or judging answers",
+    )
     parser.add_argument("--judge-model", help="Ollama model used as the LLM judge")
     parser.add_argument(
         "--max-regression",
@@ -66,6 +76,8 @@ def main() -> int:
             k=args.k,
             max_relevant_distance=args.max_relevant_distance,
             judge_model=args.judge_model,
+            use_query_rewriting=not args.disable_query_rewriting,
+            retrieval_only=args.retrieval_only,
             progress_callback=report_progress,
         )
         failures = evaluate_thresholds(report["summary"], parse_thresholds(args.thresholds))

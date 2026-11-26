@@ -102,6 +102,8 @@ The model is loaded asynchronously after the HTTP server starts. During the init
 
 The model was selected because the application must search corporate documents across languages. It maps semantically related text into a shared multilingual vector space, which allows a question in one language to retrieve a relevant passage in another. Its 384-dimensional vectors reduce storage and search cost compared with larger embedding models, while its direct Sentence Transformers integration makes local inference straightforward. This is a practical quality, speed, and resource trade-off for the current MVP.
 
+An offline evaluation of `intfloat/multilingual-e5-small` showed stronger aggregate scores, but also answer-support regressions on legal questions. It has not replaced MiniLM; the indexed production vectors remain unchanged. See [RAG evaluation](RAG_EVALUATION.md) for the comparison and decision.
+
 It is installed as part of the Python dependency `sentence-transformers`. At application startup, the model is loaded in a background thread and downloaded from Hugging Face if it is not already in the local cache. To pre-download it manually after `uv sync`, run:
 
 ```powershell
@@ -180,13 +182,15 @@ uv run python -m app.evaluate `
   --k 5
 ```
 
-The CLI prints the current case and RAG/judge stage. Reports are written under the ignored `evals/results/` directory. Re-index documents after changing chunking or embedding settings.
+The CLI prints the current case and RAG/judge stage. Reports are written under `evals/results/`; choose a new output filename to keep earlier runs for comparison. Re-index documents after changing chunking or embedding settings.
 
 The evaluator's unit tests do not require PostgreSQL or Ollama:
 
 ```powershell
 uv run pytest -q tests/test_evaluation.py tests/test_rag.py
 ```
+
+For retrieval experiments, `app.evaluate` supports `--retrieval-only` and `--disable-query-rewriting`; these options isolate retrieval metrics without generating or judging answers. Reports include the selected query-rewriting mode and elapsed time.
 
 ## Roadmap
 
@@ -201,6 +205,6 @@ uv run pytest -q tests/test_evaluation.py tests/test_rag.py
 ## Configuration
 
 - The app expects an Ollama endpoint at `http://localhost:11434/api/generate`.
-- PostgreSQL is exposed locally on port `5433` by Docker Compose.
+- PostgreSQL is exposed locally on port `5434` by Docker Compose.
 - `OLLAMA_MODEL` controls the local answer-generation model.
 - Database settings are configured through `.env`; the installation example is in the root README.

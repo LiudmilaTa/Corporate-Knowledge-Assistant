@@ -12,3 +12,4 @@ Use this Skill when changing retrieval, chunking, query rewriting, or answer gen
 3. For an end-to-end evaluation, ensure PostgreSQL, indexed source PDFs, and Ollama are available.
 4. Compare a candidate report with a reviewed baseline; do not overwrite the baseline as part of routine evaluation.
 5. Report retrieval and answer-quality changes separately, including any regression and its affected cases.
+6. Use `--retrieval-only` and `--disable-query-rewriting` to isolate the retrieval impact of query rewriting before running expensive answer-quality evaluations.

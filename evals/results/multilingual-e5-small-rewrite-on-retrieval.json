@@ -1,0 +1,2085 @@
+{
+  "config": {
+    "k": 5,
+    "max_relevant_distance": 0.6,
+    "embedding_model": "intfloat/multilingual-e5-small",
+    "embedding_dimension": 384,
+    "query_prefix": "query: ",
+    "passage_prefix": "passage: ",
+    "query_rewriting_enabled": true,
+    "query_rewriting_model": "mistral",
+    "retrieval_only": true,
+    "chunk_size": 1000,
+    "chunk_overlap": 200,
+    "indexed_chunks": 2265,
+    "device": "cpu",
+    "model_load_seconds": 5.511904700000741,
+    "index_build_seconds": 79.50126009999985,
+    "query_evaluation_seconds": 299.92200589999993,
+    "elapsed_seconds": 384.9625328000002
+  },
+  "summary": {
+    "precision_at_k": 0.12413793103448276,
+    "recall_at_k": 0.5431034482758621,
+    "f1_at_k": 0.19540229885057472,
+    "mrr": 0.5287356321839081,
+    "ndcg_at_k": 0.5108725490656594,
+    "hit_rate_at_k": 0.6206896551724138,
+    "context_precision": null,
+    "context_recall": null,
+    "faithfulness": null,
+    "answer_relevance": null,
+    "correctness": null,
+    "completeness": null
+  },
+  "cases": [
+    {
+      "id": "326-scope-cs",
+      "question": "Co upravuje § 1 zákona č. 326/1999 Sb.?",
+      "answer": null,
+      "search_candidates": [
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 1
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 84
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 1
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 70
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 83
+        }
+      ],
+      "retrieved_sources": [
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 1
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 84
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 1
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 70
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 83
+        }
+      ],
+      "metrics": {
+        "precision_at_k": 0.2,
+        "recall_at_k": 1.0,
+        "f1_at_k": 0.33333333333333337,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0,
+        "hit_rate_at_k": 1.0,
+        "context_precision": null,
+        "context_recall": null,
+        "faithfulness": null,
+        "answer_relevance": null,
+        "correctness": null,
+        "completeness": null
+      },
+      "judge_rationale": null
+    },
+    {
+      "id": "326-scope-ru",
+      "question": "Что регулирует § 1 Закона № 326/1999 Sb.?",
+      "answer": null,
+      "search_candidates": [
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 175
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 175
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 175
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 175
+        }
+      ],
+      "retrieved_sources": [
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 175
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 175
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 175
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 175
+        }
+      ],
+      "metrics": {
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "f1_at_k": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_k": 0.0,
+        "hit_rate_at_k": 0.0,
+        "context_precision": null,
+        "context_recall": null,
+        "faithfulness": null,
+        "answer_relevance": null,
+        "correctness": null,
+        "completeness": null
+      },
+      "judge_rationale": null
+    },
+    {
+      "id": "326-scope-en",
+      "question": "What does Section 1 of Act No. 326/1999 Sb. regulate?",
+      "answer": null,
+      "search_candidates": [
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        }
+      ],
+      "retrieved_sources": [
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        }
+      ],
+      "metrics": {
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "f1_at_k": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_k": 0.0,
+        "hit_rate_at_k": 0.0,
+        "context_precision": null,
+        "context_recall": null,
+        "faithfulness": null,
+        "answer_relevance": null,
+        "correctness": null,
+        "completeness": null
+      },
+      "judge_rationale": null
+    },
+    {
+      "id": "326-family-reunification-cs",
+      "question": "Kdo může podle § 42a žádat o dlouhodobý pobyt za účelem společného soužití rodiny?",
+      "answer": null,
+      "search_candidates": [
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 18
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 41
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 41
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 18
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 18
+        }
+      ],
+      "retrieved_sources": [
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 18
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 41
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 41
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 18
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 18
+        }
+      ],
+      "metrics": {
+        "precision_at_k": 0.2,
+        "recall_at_k": 1.0,
+        "f1_at_k": 0.33333333333333337,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0,
+        "hit_rate_at_k": 1.0,
+        "context_precision": null,
+        "context_recall": null,
+        "faithfulness": null,
+        "answer_relevance": null,
+        "correctness": null,
+        "completeness": null
+      },
+      "judge_rationale": null
+    },
+    {
+      "id": "326-family-reunification-ru",
+      "question": "Кто может подать заявление на долгосрочное пребывание с целью совместного проживания семьи согласно § 42a?",
+      "answer": null,
+      "search_candidates": [
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 18
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 17
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 41
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 18
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 41
+        }
+      ],
+      "retrieved_sources": [
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 18
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 17
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 41
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 18
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 41
+        }
+      ],
+      "metrics": {
+        "precision_at_k": 0.2,
+        "recall_at_k": 1.0,
+        "f1_at_k": 0.33333333333333337,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0,
+        "hit_rate_at_k": 1.0,
+        "context_precision": null,
+        "context_recall": null,
+        "faithfulness": null,
+        "answer_relevance": null,
+        "correctness": null,
+        "completeness": null
+      },
+      "judge_rationale": null
+    },
+    {
+      "id": "326-family-reunification-en",
+      "question": "Who may apply for a long-term residence permit for family reunification under Section 42a?",
+      "answer": null,
+      "search_candidates": [
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 53
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 20
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 37
+        }
+      ],
+      "retrieved_sources": [
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 53
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 20
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 37
+        }
+      ],
+      "metrics": {
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "f1_at_k": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_k": 0.0,
+        "hit_rate_at_k": 0.0,
+        "context_precision": null,
+        "context_recall": null,
+        "faithfulness": null,
+        "answer_relevance": null,
+        "correctness": null,
+        "completeness": null
+      },
+      "judge_rationale": null
+    },
+    {
+      "id": "435-purpose-cs",
+      "question": "Jaký je podle § 1 hlavní cíl státní politiky zaměstnanosti?",
+      "answer": null,
+      "search_candidates": [
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 1
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 55
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 78
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 7
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 7
+        }
+      ],
+      "retrieved_sources": [
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 1
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 55
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 78
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 7
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 7
+        }
+      ],
+      "metrics": {
+        "precision_at_k": 0.2,
+        "recall_at_k": 1.0,
+        "f1_at_k": 0.33333333333333337,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0,
+        "hit_rate_at_k": 1.0,
+        "context_precision": null,
+        "context_recall": null,
+        "faithfulness": null,
+        "answer_relevance": null,
+        "correctness": null,
+        "completeness": null
+      },
+      "judge_rationale": null
+    },
+    {
+      "id": "435-purpose-ru",
+      "question": "Какова основная цель государственной политики занятости согласно § 1?",
+      "answer": null,
+      "search_candidates": [
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 1
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 1
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 54
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 8
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 1
+        }
+      ],
+      "retrieved_sources": [
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 1
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 1
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 54
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 8
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 1
+        }
+      ],
+      "metrics": {
+        "precision_at_k": 0.2,
+        "recall_at_k": 1.0,
+        "f1_at_k": 0.33333333333333337,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0,
+        "hit_rate_at_k": 1.0,
+        "context_precision": null,
+        "context_recall": null,
+        "faithfulness": null,
+        "answer_relevance": null,
+        "correctness": null,
+        "completeness": null
+      },
+      "judge_rationale": null
+    },
+    {
+      "id": "435-purpose-en",
+      "question": "What is the main aim of state employment policy under Section 1?",
+      "answer": null,
+      "search_candidates": [
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 1
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 1
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 78
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 20
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 44
+        }
+      ],
+      "retrieved_sources": [
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 1
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 1
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 78
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 20
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 44
+        }
+      ],
+      "metrics": {
+        "precision_at_k": 0.2,
+        "recall_at_k": 1.0,
+        "f1_at_k": 0.33333333333333337,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0,
+        "hit_rate_at_k": 1.0,
+        "context_precision": null,
+        "context_recall": null,
+        "faithfulness": null,
+        "answer_relevance": null,
+        "correctness": null,
+        "completeness": null
+      },
+      "judge_rationale": null
+    },
+    {
+      "id": "435-participants-cs",
+      "question": "Kdo patří mezi účastníky právních vztahů podle § 3 odst. 1 zákona o zaměstnanosti?",
+      "answer": null,
+      "search_candidates": [
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 2
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 2
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 10
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 2
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 53
+        }
+      ],
+      "retrieved_sources": [
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 2
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 2
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 10
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 2
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 53
+        }
+      ],
+      "metrics": {
+        "precision_at_k": 0.2,
+        "recall_at_k": 1.0,
+        "f1_at_k": 0.33333333333333337,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0,
+        "hit_rate_at_k": 1.0,
+        "context_precision": null,
+        "context_recall": null,
+        "faithfulness": null,
+        "answer_relevance": null,
+        "correctness": null,
+        "completeness": null
+      },
+      "judge_rationale": null
+    },
+    {
+      "id": "435-participants-en",
+      "question": "Who are the participants in legal relations under Section 3(1) of the Employment Act?",
+      "answer": null,
+      "search_candidates": [
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 2
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 53
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 53
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 78
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 53
+        }
+      ],
+      "retrieved_sources": [
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 2
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 53
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 53
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 78
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 53
+        }
+      ],
+      "metrics": {
+        "precision_at_k": 0.2,
+        "recall_at_k": 1.0,
+        "f1_at_k": 0.33333333333333337,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0,
+        "hit_rate_at_k": 1.0,
+        "context_precision": null,
+        "context_recall": null,
+        "faithfulness": null,
+        "answer_relevance": null,
+        "correctness": null,
+        "completeness": null
+      },
+      "judge_rationale": null
+    },
+    {
+      "id": "500-public-service-cs",
+      "question": "Jaké povinnosti vůči dotčeným osobám stanoví § 4 správního řádu?",
+      "answer": null,
+      "search_candidates": [
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 2
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 41
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 41
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 4
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 10
+        }
+      ],
+      "retrieved_sources": [
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 2
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 41
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 41
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 4
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 10
+        }
+      ],
+      "metrics": {
+        "precision_at_k": 0.2,
+        "recall_at_k": 1.0,
+        "f1_at_k": 0.33333333333333337,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0,
+        "hit_rate_at_k": 1.0,
+        "context_precision": null,
+        "context_recall": null,
+        "faithfulness": null,
+        "answer_relevance": null,
+        "correctness": null,
+        "completeness": null
+      },
+      "judge_rationale": null
+    },
+    {
+      "id": "500-public-service-ru",
+      "question": "Какие обязанности перед затрагиваемыми лицами устанавливает § 4 Административного кодекса?",
+      "answer": null,
+      "search_candidates": [
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 2
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 55
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 4
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 7
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 4
+        }
+      ],
+      "retrieved_sources": [
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 2
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 55
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 4
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 7
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 4
+        }
+      ],
+      "metrics": {
+        "precision_at_k": 0.2,
+        "recall_at_k": 1.0,
+        "f1_at_k": 0.33333333333333337,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0,
+        "hit_rate_at_k": 1.0,
+        "context_precision": null,
+        "context_recall": null,
+        "faithfulness": null,
+        "answer_relevance": null,
+        "correctness": null,
+        "completeness": null
+      },
+      "judge_rationale": null
+    },
+    {
+      "id": "500-public-service-en",
+      "question": "What duties toward affected persons are set out in Section 4 of the Administrative Procedure Code?",
+      "answer": null,
+      "search_candidates": [
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 2
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 14
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 42
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 2
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 20
+        }
+      ],
+      "retrieved_sources": [
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 2
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 14
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 42
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 2
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 20
+        }
+      ],
+      "metrics": {
+        "precision_at_k": 0.2,
+        "recall_at_k": 1.0,
+        "f1_at_k": 0.33333333333333337,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0,
+        "hit_rate_at_k": 1.0,
+        "context_precision": null,
+        "context_recall": null,
+        "faithfulness": null,
+        "answer_relevance": null,
+        "correctness": null,
+        "completeness": null
+      },
+      "judge_rationale": null
+    },
+    {
+      "id": "500-processing-cs",
+      "question": "Jak má správní orgán postupovat podle § 6 správního řádu při vyřizování věcí?",
+      "answer": null,
+      "search_candidates": [
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 2
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 12
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 9
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 19
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 13
+        }
+      ],
+      "retrieved_sources": [
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 2
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 12
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 9
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 19
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 13
+        }
+      ],
+      "metrics": {
+        "precision_at_k": 0.2,
+        "recall_at_k": 1.0,
+        "f1_at_k": 0.33333333333333337,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0,
+        "hit_rate_at_k": 1.0,
+        "context_precision": null,
+        "context_recall": null,
+        "faithfulness": null,
+        "answer_relevance": null,
+        "correctness": null,
+        "completeness": null
+      },
+      "judge_rationale": null
+    },
+    {
+      "id": "500-processing-ru",
+      "question": "Как административный орган должен рассматривать дела согласно § 6 Административного кодекса?",
+      "answer": null,
+      "search_candidates": [
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 2
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 1
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 2
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 9
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 22
+        }
+      ],
+      "retrieved_sources": [
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 2
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 1
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 2
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 9
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 22
+        }
+      ],
+      "metrics": {
+        "precision_at_k": 0.2,
+        "recall_at_k": 1.0,
+        "f1_at_k": 0.33333333333333337,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0,
+        "hit_rate_at_k": 1.0,
+        "context_precision": null,
+        "context_recall": null,
+        "faithfulness": null,
+        "answer_relevance": null,
+        "correctness": null,
+        "completeness": null
+      },
+      "judge_rationale": null
+    },
+    {
+      "id": "500-processing-en",
+      "question": "How should an administrative authority handle matters under Section 6 of the Administrative Procedure Code?",
+      "answer": null,
+      "search_candidates": [
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 22
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 53
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 42
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 53
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 1
+        }
+      ],
+      "retrieved_sources": [
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 22
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 53
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 42
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 53
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 1
+        }
+      ],
+      "metrics": {
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "f1_at_k": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_k": 0.0,
+        "hit_rate_at_k": 0.0,
+        "context_precision": null,
+        "context_recall": null,
+        "faithfulness": null,
+        "answer_relevance": null,
+        "correctness": null,
+        "completeness": null
+      },
+      "judge_rationale": null
+    },
+    {
+      "id": "absent-statistics-cs",
+      "question": "Kolik cizinců žilo v Praze v roce 2025?",
+      "answer": null,
+      "search_candidates": [
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 95
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        }
+      ],
+      "retrieved_sources": [
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 95
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        }
+      ],
+      "metrics": {
+        "precision_at_k": null,
+        "recall_at_k": null,
+        "f1_at_k": null,
+        "mrr": null,
+        "ndcg_at_k": null,
+        "hit_rate_at_k": null,
+        "context_precision": null,
+        "context_recall": null,
+        "faithfulness": null,
+        "answer_relevance": null,
+        "correctness": null,
+        "completeness": null
+      },
+      "judge_rationale": null
+    },
+    {
+      "id": "absent-statistics-ru",
+      "question": "Сколько иностранцев проживало в Праге в 2025 году?",
+      "answer": null,
+      "search_candidates": [
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 175
+        }
+      ],
+      "retrieved_sources": [
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 175
+        }
+      ],
+      "metrics": {
+        "precision_at_k": null,
+        "recall_at_k": null,
+        "f1_at_k": null,
+        "mrr": null,
+        "ndcg_at_k": null,
+        "hit_rate_at_k": null,
+        "context_precision": null,
+        "context_recall": null,
+        "faithfulness": null,
+        "answer_relevance": null,
+        "correctness": null,
+        "completeness": null
+      },
+      "judge_rationale": null
+    },
+    {
+      "id": "absent-statistics-en",
+      "question": "How many foreign nationals lived in Prague in 2025?",
+      "answer": null,
+      "search_candidates": [
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 175
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        }
+      ],
+      "retrieved_sources": [
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 175
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        }
+      ],
+      "metrics": {
+        "precision_at_k": null,
+        "recall_at_k": null,
+        "f1_at_k": null,
+        "mrr": null,
+        "ndcg_at_k": null,
+        "hit_rate_at_k": null,
+        "context_precision": null,
+        "context_recall": null,
+        "faithfulness": null,
+        "answer_relevance": null,
+        "correctness": null,
+        "completeness": null
+      },
+      "judge_rationale": null
+    },
+    {
+      "id": "student-visa-time-cs",
+      "question": "Když si požádám o dlouhodobé vízum kvůli studiu, jak dlouho se na rozhodnutí čeká?",
+      "answer": null,
+      "search_candidates": [
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 21
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 24
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 21
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 17
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 24
+        }
+      ],
+      "retrieved_sources": [
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 21
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 24
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 21
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 17
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 24
+        }
+      ],
+      "metrics": {
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "f1_at_k": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_k": 0.0,
+        "hit_rate_at_k": 0.0,
+        "context_precision": null,
+        "context_recall": null,
+        "faithfulness": null,
+        "answer_relevance": null,
+        "correctness": null,
+        "completeness": null
+      },
+      "judge_rationale": null
+    },
+    {
+      "id": "student-visa-time-ru",
+      "question": "Если подать на долгосрочную визу для учёбы в Чехии, сколько обычно ждать решения?",
+      "answer": null,
+      "search_candidates": [
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 8
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 62
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 21
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 151
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 36
+        }
+      ],
+      "retrieved_sources": [
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 8
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 62
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 21
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 151
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 36
+        }
+      ],
+      "metrics": {
+        "precision_at_k": 0.2,
+        "recall_at_k": 1.0,
+        "f1_at_k": 0.33333333333333337,
+        "mrr": 0.25,
+        "ndcg_at_k": 0.43067655807339306,
+        "hit_rate_at_k": 1.0,
+        "context_precision": null,
+        "context_recall": null,
+        "faithfulness": null,
+        "answer_relevance": null,
+        "correctness": null,
+        "completeness": null
+      },
+      "judge_rationale": null
+    },
+    {
+      "id": "student-visa-time-en",
+      "question": "If I apply for a Czech long-stay visa to study, how long can the decision take?",
+      "answer": null,
+      "search_candidates": [
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 53
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 8
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 21
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 36
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 36
+        }
+      ],
+      "retrieved_sources": [
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 53
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 8
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 21
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 36
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 36
+        }
+      ],
+      "metrics": {
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "f1_at_k": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_k": 0.0,
+        "hit_rate_at_k": 0.0,
+        "context_precision": null,
+        "context_recall": null,
+        "faithfulness": null,
+        "answer_relevance": null,
+        "correctness": null,
+        "completeness": null
+      },
+      "judge_rationale": null
+    },
+    {
+      "id": "employee-card-time-cs",
+      "question": "A když žádám o zaměstnaneckou kartu kvůli práci, jak dlouho na ni můžu čekat?",
+      "answer": null,
+      "search_candidates": [
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        }
+      ],
+      "retrieved_sources": [
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 185
+        }
+      ],
+      "metrics": {
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "f1_at_k": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_k": 0.0,
+        "hit_rate_at_k": 0.0,
+        "context_precision": null,
+        "context_recall": null,
+        "faithfulness": null,
+        "answer_relevance": null,
+        "correctness": null,
+        "completeness": null
+      },
+      "judge_rationale": null
+    },
+    {
+      "id": "employee-card-time-ru",
+      "question": "А если подаю на рабочую карту (zaměstnanecká karta), сколько ждать?",
+      "answer": null,
+      "search_candidates": [
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 57
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 36
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 24
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 49
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 37
+        }
+      ],
+      "retrieved_sources": [
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 57
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 36
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 24
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 49
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 37
+        }
+      ],
+      "metrics": {
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "f1_at_k": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_k": 0.0,
+        "hit_rate_at_k": 0.0,
+        "context_precision": null,
+        "context_recall": null,
+        "faithfulness": null,
+        "answer_relevance": null,
+        "correctness": null,
+        "completeness": null
+      },
+      "judge_rationale": null
+    },
+    {
+      "id": "employee-card-time-en",
+      "question": "If I apply for an employee card for a job in Czechia, how long might it take?",
+      "answer": null,
+      "search_candidates": [
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 36
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 151
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 47
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 148
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 125
+        }
+      ],
+      "retrieved_sources": [
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 36
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 151
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 47
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 148
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 125
+        }
+      ],
+      "metrics": {
+        "precision_at_k": 0.2,
+        "recall_at_k": 1.0,
+        "f1_at_k": 0.33333333333333337,
+        "mrr": 0.5,
+        "ndcg_at_k": 0.6309297535714575,
+        "hit_rate_at_k": 1.0,
+        "context_precision": null,
+        "context_recall": null,
+        "faithfulness": null,
+        "answer_relevance": null,
+        "correctness": null,
+        "completeness": null
+      },
+      "judge_rationale": null
+    },
+    {
+      "id": "job-loss-employee-card-cs",
+      "question": "Když přijdu o práci a mám zaměstnaneckou kartu, kolik mám času najít si novou, než bude problém s pobytem?",
+      "answer": null,
+      "search_candidates": [
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 42
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 21
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 5
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 5
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 21
+        }
+      ],
+      "retrieved_sources": [
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 42
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 21
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 5
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 5
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 21
+        }
+      ],
+      "metrics": {
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "f1_at_k": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_k": 0.0,
+        "hit_rate_at_k": 0.0,
+        "context_precision": null,
+        "context_recall": null,
+        "faithfulness": null,
+        "answer_relevance": null,
+        "correctness": null,
+        "completeness": null
+      },
+      "judge_rationale": null
+    },
+    {
+      "id": "job-loss-employee-card-ru",
+      "question": "Если меня уволили, а у меня рабочая карта, сколько есть времени найти новую работу, чтобы не было проблем с пребыванием?",
+      "answer": null,
+      "search_candidates": [
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 13
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 101
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 36
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 151
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 24
+        }
+      ],
+      "retrieved_sources": [
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 13
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 101
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 36
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 151
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 24
+        }
+      ],
+      "metrics": {
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "f1_at_k": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_k": 0.0,
+        "hit_rate_at_k": 0.0,
+        "context_precision": null,
+        "context_recall": null,
+        "faithfulness": null,
+        "answer_relevance": null,
+        "correctness": null,
+        "completeness": null
+      },
+      "judge_rationale": null
+    },
+    {
+      "id": "job-loss-employee-card-en",
+      "question": "I lost my job and have a Czech employee card. How long do I have to find another job before my residence status is affected?",
+      "answer": null,
+      "search_candidates": [
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 125
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 36
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 27
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 139
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 18
+        }
+      ],
+      "retrieved_sources": [
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 125
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 36
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 27
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 139
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 18
+        }
+      ],
+      "metrics": {
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "f1_at_k": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_k": 0.0,
+        "hit_rate_at_k": 0.0,
+        "context_precision": null,
+        "context_recall": null,
+        "faithfulness": null,
+        "answer_relevance": null,
+        "correctness": null,
+        "completeness": null
+      },
+      "judge_rationale": null
+    },
+    {
+      "id": "supplement-documents-cs",
+      "question": "Úřad si ode mě vyžádal další dokumenty a já už je poslal. Za jak dlouho teď musí rozhodnout?",
+      "answer": null,
+      "search_candidates": [
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 164
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 20
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 55
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 151
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 149
+        }
+      ],
+      "retrieved_sources": [
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 164
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 20
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 55
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 151
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 149
+        }
+      ],
+      "metrics": {
+        "precision_at_k": 0.2,
+        "recall_at_k": 0.25,
+        "f1_at_k": 0.22222222222222224,
+        "mrr": 0.25,
+        "ndcg_at_k": 0.16812753627111746,
+        "hit_rate_at_k": 1.0,
+        "context_precision": null,
+        "context_recall": null,
+        "faithfulness": null,
+        "answer_relevance": null,
+        "correctness": null,
+        "completeness": null
+      },
+      "judge_rationale": null
+    },
+    {
+      "id": "supplement-documents-ru",
+      "question": "Ведомство попросило донести документы, я уже всё отправила. Сколько теперь ждать решения?",
+      "answer": null,
+      "search_candidates": [
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 124
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 9
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 151
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 25
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 10
+        }
+      ],
+      "retrieved_sources": [
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 124
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 9
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 151
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 25
+        },
+        {
+          "filename": "Zákon 435_2004 Sb. (1.7.2026).pdf",
+          "page": 10
+        }
+      ],
+      "metrics": {
+        "precision_at_k": 0.2,
+        "recall_at_k": 0.25,
+        "f1_at_k": 0.22222222222222224,
+        "mrr": 0.3333333333333333,
+        "ndcg_at_k": 0.19519002499605084,
+        "hit_rate_at_k": 1.0,
+        "context_precision": null,
+        "context_recall": null,
+        "faithfulness": null,
+        "answer_relevance": null,
+        "correctness": null,
+        "completeness": null
+      },
+      "judge_rationale": null
+    },
+    {
+      "id": "supplement-documents-en",
+      "question": "The office asked me to send some missing documents, and I have sent them. How long do I have to wait for a decision now?",
+      "answer": null,
+      "search_candidates": [
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 151
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 24
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 26
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 164
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 27
+        }
+      ],
+      "retrieved_sources": [
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 151
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 24
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 26
+        },
+        {
+          "filename": "Zákon 326_1999 Sb. (12.6.2026).pdf",
+          "page": 164
+        },
+        {
+          "filename": "Zákon 500_2004 Sb. (1.7.2025).pdf",
+          "page": 27
+        }
+      ],
+      "metrics": {
+        "precision_at_k": 0.2,
+        "recall_at_k": 0.25,
+        "f1_at_k": 0.22222222222222224,
+        "mrr": 1.0,
+        "ndcg_at_k": 0.3903800499921017,
+        "hit_rate_at_k": 1.0,
+        "context_precision": null,
+        "context_recall": null,
+        "faithfulness": null,
+        "answer_relevance": null,
+        "correctness": null,
+        "completeness": null
+      },
+      "judge_rationale": null
+    }
+  ]
+}
